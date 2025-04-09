@@ -1,0 +1,10 @@
+:root {
+    --yellowColor: #d0ff00;
+    --blueColor: #0026ff;
+    --orangeColor: #ffa600;
+    --blackColor: #000;
+    --whiteColor: #fff;
+}
+* {
+    box-sizing: border-box;
+}
