@@ -22,11 +22,15 @@ const NavItems = [
         href: "/Nos-services",
         children: [
             { name: "Langues", href: "/langues" },
-            { name: "Soutien scolaire", href: "" },
-            { name: "Bureautique", href: "" },
-            { name: "Alphabétisation", href: "" },
-            { name: "Coaching scolaire", href: "" },
-        ],
+            { name: "Soutien scolaire", href: "/soutien-scolaire" },
+            { name: "Bureautique", href: "/bureautique" },
+            { name: "Alphabétisation", href: "/alphabetisation" },
+            { name: "Coaching scolaire", href: "/coaching-scolaire" },
+            { name: "Sorties éducatives", href: "/sorties-educatives" },
+            { name: "Développement personnel", href: "/developpement-personnel" },
+            { name: "Activités ludiques", href: "/activites-ludiques" }
+          ]
+          
     },
     {
         name: "Evenements&Actualitées",
@@ -53,6 +57,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
+import { useCustomHooks } from "../Context/contextApi";
 const Navbar = () => {
     //dark Mode
     const [isDarkMode, setisDarkMode] = useState(
@@ -88,9 +93,10 @@ const Navbar = () => {
     }, [isDarkMode]);
 
     //dropDown
-    const [showServices, setshowServices] = useState(false);
+    const {showServices,toggleDropDown,AfficherDropDown,HideDropDown}=useCustomHooks()
+
     return (
-        <nav className="select-none z-[9999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
+        <nav className="select-none z-[99999999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
             <Link to="/">
                 <div className="w-16 h-16">
                     <img
@@ -112,27 +118,27 @@ const Navbar = () => {
                                 : { height: 0, overflow: "hidden" }
                         }
                         className="border border-t-0   shadow fixed left-0 top-[4.06rem] bg-whiteColor w-full right-0 flex gap-x-10 flex-col items-center gap-y-3 text-blackColor lg:static lg:flex-row  lg:shadow-none lg:border-none    "
-                        animate={!versionDesktop ? { height: "415px" } : {}}
+                        animate={!versionDesktop ? { height: "434px" } : {}}
                     >
                         {NavItems.map((item, index) => (
                             <li
-                                className=" relative  w-full  h-full inline-block"
+                                className="    w-full  h-full inline-block"
                                 key={index}
                             >
                                 {item.children ? (
                                     <div
-                                        className="md:p-4  "
+                                        className="md:p-4   relative"
                                         onClick={() =>
                                             !versionDesktop &&
-                                            setshowServices((prev) => !prev)
+                                            toggleDropDown()
                                         }
                                         onMouseEnter={() =>
                                             versionDesktop &&
-                                            setshowServices(true)
+                                            AfficherDropDown()
                                         }
                                         onMouseLeave={() =>
                                             versionDesktop &&
-                                            setshowServices(false)
+                                            HideDropDown()
                                         }
                                     >
                                         <h1 className="hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2 tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D gap-x-4 ">
@@ -148,7 +154,7 @@ const Navbar = () => {
                                             )}
                                         </h1>
                                         {showServices && (
-                                            <ul className="absolute    z-[999999] w-full   md:top-[4.5rem] border md-border-none md:h-auto  bg-whiteColor   rounded-b-md p-2 flex flex-col gap-y-2">
+                                            <ul className="absolute    z-[999999] w-full   md:top-[4.5rem] border md-border-none md:h-auto   bg-whiteColor left-0   rounded-b-md p-2 flex flex-col gap-y-2">
                                                 {item.children.map((item) => {
                                                     return (
                                                         <li className="w-full inline-block ">
