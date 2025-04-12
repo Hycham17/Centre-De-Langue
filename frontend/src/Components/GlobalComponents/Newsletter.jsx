@@ -44,8 +44,7 @@ const Newsletter = () => {
                                     shake
                                 />
                                 <h1 className="text-2xl  font-D uppercase font-bold tracking-wider text-blackColor">
-                                    Inscrivez-vous à notre newsletter
-                                </h1>
+                                    Inscrivez-vous à notre newsletter                                 </h1>
                             </div>
                             <form
                                 style={{
