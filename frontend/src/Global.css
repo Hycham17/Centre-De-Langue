@@ -1,9 +1,20 @@
 :root {
     --yellowColor: #d0ff00;
-    --blueColor: #0026ff;
-    --orangeColor: #ffa600;
+    --blueColor: #00acff;
+    --orangeColor: #f49100;
+    --iconColor: #6d6d6d;
     --blackColor: #000;
     --whiteColor: #fff;
+    /*DARK MODE*/
+    scroll-behavior: smooth;
+   
+}
+.darkMode{
+     --blackColor: #fff;
+    --whiteColor: #000;
+}
+body{
+    background: var(--whiteColor);
 }
 * {
     box-sizing: border-box;

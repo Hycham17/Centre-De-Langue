@@ -10,8 +10,7 @@ useEffect(()=>{
         duration: 1000, // durée de l’animation
       });
     }, [])
-
-
+    
     return (
         <Routes>
             <Route path="/" element={<Layout/>}>

@@ -1,0 +1,23 @@
+<svg width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <!-- Cercle du haut -->
+    <path id="topCurve" d="M 50,150 A 100,100 0 0 1 250,150" />
+    
+    <!-- Cercle du bas (inversé pour le texte vers l’extérieur) -->
+    <path id="bottomCurve" d="M 250,150 A 100,100 0 0 1 50,150" />
+  </defs>
+
+  <!-- Texte du haut -->
+  <text fill="navy" font-size="14" font-weight="bold" text-anchor="middle">
+    <textPath href="#topCurve" startOffset="50%">
+      RÉSEAU DES ASSOCIATIONS UNIES
+    </textPath>
+  </text>
+
+  <!-- Texte du bas -->
+  <text fill="orange" font-size="14" font-weight="bold" text-anchor="middle">
+    <textPath href="#bottomCurve" startOffset="50%">
+      POUR LA QUALIFICATION SOCIALE
+    </textPath>
+  </text>
+</svg>
