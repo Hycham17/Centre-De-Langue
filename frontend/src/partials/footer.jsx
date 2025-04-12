@@ -82,7 +82,7 @@ const {setShowNewsLetter,showNewsLetter}=useCustomHooks()
                         );
                     })}
                 </ul>
-                <button onClick={()=>setShowNewsLetter(true)} className="bg-gradient-to-br from-blueColor to-yellow text-white w-[30%] md:w-full md:px-2 p-1 rounded-b-3xl font-B hover:rounded-b-none hover:rounded-t-3xl transition-all duration-1000 font-semibold tracking-wider hover:bg-gradient-to-bl active:scale-[0.5]">S'abonner</button>
+                <button onClick={()=>setShowNewsLetter(true)} className="bg-gradient-to-br from-blueColor to-yellow text-white w-[30%] md:w-full md:px-2 p-1  font-B hover:rou nded-b-none hover:rounded-t- rounded-xl xl transition-all duration-1000 font-semibold tracking-wider hover:bg-gradient-to-bl active:scale-[0.5]">S'abonner</button>
                 </div>
             </div>
             <div className="flex flex-col gap-y-4 md:items-center">

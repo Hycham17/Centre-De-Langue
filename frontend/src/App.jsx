@@ -8,7 +8,8 @@ const App = () => {
 useEffect(()=>{
     AOS.init({
         duration: 1000, // durée de l’animation
-      });
+    once:true
+    });
     }, [])
     
     return (

@@ -43,13 +43,13 @@ const Newsletter = () => {
                                     icon={faBell}
                                     shake
                                 />
-                                <h1 className="text-2xl  font-D uppercase font-bold tracking-wider text-blackColor">
+                                <h1 className="text-xl text-center md:text-2xl  font-D uppercase font-bold tracking-wider text-blackColor">
                                     Inscrivez-vous à notre newsletter                                 </h1>
                             </div>
                             <form
                                 style={{
                                     borderColor: focus
-                                        ? "var(--orangeColor)"
+                                        ? "var(--blueColor)"
                                         : "var(--iconColor)",
                                 }}
                                 action=""
@@ -58,13 +58,13 @@ const Newsletter = () => {
                                 <input
                                     onFocus={() => setFocus(true)}
                                     onBlur={() => setFocus(false)}
-                                    className="bg-transparent text-blackColor outline-none h-full w-[70%] px-2 text-sm placeholder:tracking-wider capitalize font-E"
+                                    className="bg-transparent text-blackColor outline-none h-full w-[70%] px-2 text-sm placeholder:tracking-wider placeholder:capitalize font-E"
                                     type="email"
                                     name="email"
                                     required
                                     placeholder="Enter Votre Adresse email"
                                 />
-                                <button className=" h-full inline-block w-[30%] text-white font-semibold tracking-wider font-B text-sm  hover:opacity-[0.6] transition-all bg-gradient-to-tr from-blueColor to-white">
+                                <button className="text-xs h-full inline-block w-[30%] text-white font-semibold tracking-wider font-B md:text-sm  hover:bg-gradient-to-bl transition-all bg-gradient-to-tr from-blueColor to-white">
                                     S'abonner
                                 </button>
                             </form>
