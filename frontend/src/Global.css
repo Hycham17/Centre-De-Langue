@@ -19,3 +19,8 @@ body{
 * {
     box-sizing: border-box;
 }
+
+.valeurCard:nth-child(2n+1):hover{
+background: var(--orangeColor);
+
+}

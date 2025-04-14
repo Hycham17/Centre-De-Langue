@@ -12,44 +12,42 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const NavItems = [
     {
-        name: "Accueil",
-        icon: faHome,
-        href: "/",
+      name: { fr: "Accueil", en: "Home", ar: "الصفحة الرئيسية" },
+      icon: faHome,
+      href: "/",
     },
     {
-        name: "Services",
-        icon: faTasks,
-        href: "/Nos-services",
-        children: [
-            { name: "Langues", href: "/langues" },
-            { name: "Soutien scolaire", href: "/soutien-scolaire" },
-            { name: "Bureautique", href: "/bureautique" },
-            { name: "Alphabétisation", href: "/alphabetisation" },
-            { name: "Coaching scolaire", href: "/coaching-scolaire" },
-            { name: "Sorties éducatives", href: "/sorties-educatives" },
-            { name: "Développement personnel", href: "/developpement-personnel" },
-            { name: "Activités ludiques", href: "/activites-ludiques" }
-          ]
-          
+      name: { fr: "Services", en: "Services", ar: "الخدمات" },
+      icon: faTasks,
+      href: "/Nos-services",
+      children: [
+        { name: { fr: "Langues", en: "Languages", ar: "اللغات" }, href: "/langues" },
+        { name: { fr: "Soutien scolaire", en: "School Support", ar: "الدعم المدرسي" }, href: "/soutien-scolaire" },
+        { name: { fr: "Bureautique", en: "Office Tools", ar: "الأدوات المكتبية" }, href: "/bureautique" },
+        { name: { fr: "Alphabétisation", en: "Literacy", ar: "محو الأمية" }, href: "/alphabetisation" },
+        { name: { fr: "Coaching scolaire", en: "School Coaching", ar: "التوجيه المدرسي" }, href: "/coaching-scolaire" },
+        { name: { fr: "Sorties éducatives", en: "Educational Trips", ar: "الرحلات التعليمية" }, href: "/sorties-educatives" },
+        { name: { fr: "Développement personnel", en: "Personal Development", ar: "التنمية الشخصية" }, href: "/developpement-personnel" },
+        { name: { fr: "Activités ludiques", en: "Fun Activities", ar: "الأنشطة الترفيهية" }, href: "/activites-ludiques" },
+      ],
     },
     {
-        name: "Evenements&Actualitées",
-        icon: faTextHeight,
-        href: "/Evenements-Actualitées",
+      name: { fr: "Evenements&Actualitées", en: "Events & News", ar: "الفعاليات والأخبار" },
+      icon: faTextHeight,
+      href: "/Evenements-Actualitées",
     },
-
     {
-        name: "inscription",
-        icon: faUser,
-        href: "/inscription",
+      name: { fr: "inscription", en: "Registration", ar: "التسجيل" },
+      icon: faUser,
+      href: "/inscription",
     },
-
     {
-        name: "Apropos",
-        icon: faInfo,
-        href: "/about",
+      name: { fr: "Apropos", en: "About", ar: "معلومات عنا" },
+      icon: faInfo,
+      href: "/about",
     },
-];
+  ];
+  
 
 import logo from "../../../../logo.png";
 import { Link, NavLink } from "react-router-dom";
@@ -59,10 +57,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { useCustomHooks } from "../Context/contextApi";
 const Navbar = () => {
-    //dark Mode
-    const [isDarkMode, setisDarkMode] = useState(
-        () => JSON.parse(localStorage.getItem("Mode")) || false
-    );
+    //dark mode
+    const { isDarkMode, setisDarkMode } = useCustomHooks();
     //State pour controller la visibilité de barre de navigationn
     const [showNavbar, setShowNavBar] = useState(window.innerWidth > 1023.33);
     //c'est la version de desktop
@@ -92,8 +88,12 @@ const Navbar = () => {
         document.querySelector("html").classList.toggle("darkMode", isDarkMode);
     }, [isDarkMode]);
 
-    //dropDown
-    const {showServices,toggleDropDown,AfficherDropDown,HideDropDown}=useCustomHooks()
+    //dropDown 
+    //currentLang 
+    //traduction function
+    const { showServices, toggleDropDown, AfficherDropDown, HideDropDown,currentLangAbrev,traductionFunction } =
+        useCustomHooks();
+
 
     return (
         <nav className="select-none z-[99999999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
@@ -129,20 +129,17 @@ const Navbar = () => {
                                     <div
                                         className="md:p-4   relative"
                                         onClick={() =>
-                                            !versionDesktop &&
-                                            toggleDropDown()
+                                            !versionDesktop && toggleDropDown()
                                         }
                                         onMouseEnter={() =>
-                                            versionDesktop &&
-                                            AfficherDropDown()
+                                            versionDesktop && AfficherDropDown()
                                         }
                                         onMouseLeave={() =>
-                                            versionDesktop &&
-                                            HideDropDown()
+                                            versionDesktop && HideDropDown()
                                         }
                                     >
                                         <h1 className="hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2 tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D gap-x-4 ">
-                                            {item.name}{" "}
+                                            {item.name[currentLangAbrev]}{" "}
                                             {!versionDesktop && (
                                                 <FontAwesomeIcon
                                                     icon={
@@ -154,19 +151,26 @@ const Navbar = () => {
                                             )}
                                         </h1>
                                         {showServices && (
-                                            <ul className="absolute    z-[999999] w-full   md:top-[4.5rem] border md-border-none md:h-auto   bg-whiteColor left-0   rounded-b-md p-2 flex flex-col gap-y-2">
-                                                {item.children.map((item,index) => {
-                                                    return (
-                                                        <li key={index} className="w-full inline-block ">
-                                                            <Link
-                                                                className=" rounded text-blackColor  text-center text-xs transition-all hover:bg-orangeColor hover:text-white tracking-wider font-D p-2 w-full inline-block "
-                                                                to={item.href}
+                                            <ul className="absolute    z-[9999999999999999999999999999] w-full   md:top-[4.5rem] border md-border-none md:h-auto   bg-whiteColor left-0   rounded-b-md p-2 flex flex-col gap-y-2">
+                                                {item.children.map(
+                                                    (item, index) => {
+                                                        return (
+                                                            <li
+                                                                key={index}
+                                                                className="w-full inline-block "
                                                             >
-                                                                {item.name}
-                                                            </Link>
-                                                        </li>
-                                                    );
-                                                })}
+                                                                <Link
+                                                                    className=" rounded text-blackColor  text-center text-xs transition-all hover:bg-orangeColor hover:text-white tracking-wider font-D p-2 w-full inline-block "
+                                                                    to={
+                                                                        item.href
+                                                                    }
+                                                                >
+                                                                    {item.name[currentLangAbrev]}
+                                                                </Link>
+                                                            </li>
+                                                        );
+                                                    }
+                                                )}
                                             </ul>
                                         )}
                                     </div>
@@ -175,7 +179,7 @@ const Navbar = () => {
                                         style={({ isActive }) => {
                                             if (
                                                 isActive &&
-                                                item.name !== "contact"
+                                                item.name['fr'] !== "contact"
                                             ) {
                                                 if (versionDesktop) {
                                                     return {
@@ -195,20 +199,17 @@ const Navbar = () => {
                                         className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D "
                                         to={item.href}
                                     >
-                                        {item.name}
+                                        {item.name[currentLangAbrev]}
                                     </NavLink>
                                 )}
                             </li>
                         ))}
-                        <li
-                            className=" relative  w-full  h-full inline-block"
-                        >
+                        <li className=" relative  w-full  h-full inline-block">
                             <a
                                 href="#contact"
                                 className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D "
                             >
-                                Contact
-                            </a>
+{traductionFunction('contact','contact','إتصل بنا')}                            </a>
                         </li>
                         <button
                             onClick={() => {

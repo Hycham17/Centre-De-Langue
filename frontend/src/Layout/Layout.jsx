@@ -2,13 +2,23 @@ import { Outlet } from "react-router-dom";
 import Footer from "../partials/footer";
 import Navbar from "../partials/navbar";
 import ElementPositionFixed from "../components/elemetsFixed/ElementPositionFixed.jsx";
+import { useCustomHooks } from "../Context/contextApi.jsx";
+import { useEffect } from "react";
 
 const Layout = () => {
+    const { currentLangAbrev } = useCustomHooks();
+    useEffect(() => {
+        const SetAttribute = (value) => {
+            document.querySelector("Html").setAttribute("dir", value);
+        };
+
+        currentLangAbrev=='ar'?SetAttribute('rtl'):SetAttribute('ltr')
+    }, [currentLangAbrev]);
     return (
         <div>
             <Navbar />
-            <div className="pt-[4.1rem]"> 
-               <ElementPositionFixed/>
+            <div className="pt-[4.1rem]">
+                <ElementPositionFixed />
 
                 <Outlet />
             </div>
