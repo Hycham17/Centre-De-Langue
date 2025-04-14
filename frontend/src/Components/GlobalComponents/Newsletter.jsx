@@ -30,6 +30,7 @@ const Newsletter = () => {
                     >
                         <div className="header  flex justify-end items-center p-1">
                             <button
+                                aria-label="Fermer la Newsletter"
                                 onClick={() => setShowNewsLetter(false)}
                                 className="text-sm text-iconColor border-iconColor transition-all hover:text-orangeColor hover:border-blueColor border-2 border-dashed rounded-full h-6 w-6 p-2 flex justify-center items-center"
                             >
@@ -44,7 +45,8 @@ const Newsletter = () => {
                                     shake
                                 />
                                 <h1 className="text-xl text-center md:text-2xl  font-D uppercase font-bold tracking-wider text-blackColor">
-                                    Inscrivez-vous à notre newsletter                                 </h1>
+                                    Inscrivez-vous à notre newsletter{" "}
+                                </h1>
                             </div>
                             <form
                                 style={{

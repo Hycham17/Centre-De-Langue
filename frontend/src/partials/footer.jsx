@@ -55,8 +55,8 @@ const Footer = () => {
     //NewsLetter 
 const {setShowNewsLetter,showNewsLetter}=useCustomHooks()
     return (
-        <footer className=" mt-10  p-3 shadow-2xl shadow-blackColor rounded text-blackColor flex flex-col gap-y-5 md:flex-row justify-around md:p-5">
-            <div className="flex flex-col gap-y-4 md:items-center">
+        <footer className=" mt-10  p-3  shadow-2xl shadow-blackColor rounded text-blackColor flex flex-col gap-y-5 md:flex-row justify-around md:p-5 md:py-16">
+            <div className="flex flex-col gap-y-4 md:items-center ">
                 <Title value={"Horaires"} />{" "}
                 <div className="flex flex-col gap-y-2 font-D items-end md:items-start">
                     <h1>Du Lundi au Samedi</h1>
