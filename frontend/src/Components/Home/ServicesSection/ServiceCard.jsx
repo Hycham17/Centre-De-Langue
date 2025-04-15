@@ -1,4 +1,9 @@
+import { useCustomHooks } from "../../../Context/contextApi";
+import { Titles } from "../../../data/titles";
+
 const ServiceCard = ({ id, title, description, photo }) => {
+      //traduction function
+      const { traductionTitle,currentLangAbrev } = useCustomHooks();
     return (
         <div data-aos={id % 2 == 0 ? "fade-up" : "fade-down"} className="w-full sm:w-[18rem] lg:w-[19rem] md:w-[15rem]  flex-shrink-0 ">
             <div className=" flex flex-col  border overflow-hidden h-full w-full  rounded-xl shadow-xl transition-all duration-1000 hover:scale-[1.04] hover:shadow-2xl p-2">
@@ -6,18 +11,18 @@ const ServiceCard = ({ id, title, description, photo }) => {
                     <img
                         className="w-[90%] h-full rounded-xl transition-all duration-1000  object-cover "
                         src={photo}
-                        alt={title}
+                        alt={title.en}
                     />
                 </div>
                 <div className="flex w-[90%] mx-auto select-none  h-full flex-col gap-y-4  justify-between">
                     <h1 className="text-sm text-center  font-semibold tracking-[2px] font-A bg-gradient-to-tr from-blueColor  text-transparent bg-clip-text">
-                        {title}
+                        {title[currentLangAbrev]}
                     </h1>
                     <p className="text-sm tracking-wider font-D text-blackColor text-justify">
-                        {description.slice(0, 90)}...
+                        {description[currentLangAbrev].slice(0, 90)}...
                     </p>
                     <button className="bg-blueColor mx-auto transition-all hover:bg-orangeColor w-[30%] sm:w-[50%]   h-10 flex justify-center items-center text-xs  tracking-wider uppercase font-B rounded-xl text-white">
-                        Lire Plus
+                        {traductionTitle(Titles,'learnMore')}
                     </button>
                 </div>
             </div>

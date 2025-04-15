@@ -1,11 +1,15 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SectionTitle from "../GlobalComponents/SectionTitle";
 import photo from "./../../assets/CentrePhotos/photoCentre.png"
+import { useCustomHooks } from "../../Context/contextApi";
+import { Titles } from "../../data/titles";
+import { texts } from "../../data/texts";
 const About = () => {
+    const { traductionTitle } = useCustomHooks();
+
     return (
         <section className=" px-5 flex flex-col gap-y-10 p-2 ">
-            <SectionTitle title="à propos" />
+            <SectionTitle title="about" />
             <div className="flex flex-col gap-y-5 md:flex-row md:gap-x-6">
                 <div
                     className="img w-full overflow-hidden rounded-xl  "
@@ -22,8 +26,7 @@ const About = () => {
                         className="text-center text-3xl tracking-wider font-H text-blackColor font-semibold capitalize"
                         data-aos="fade-down"
                     >
-                        Centre SocioCulturel
-                    </h1>
+{traductionTitle(Titles,'socioCulturalCenter')}                    </h1>
                     <p
                         data-aos="zoom-in"
                         className="text-justify font-E "
@@ -35,14 +38,7 @@ const About = () => {
                             WebkitBackgroundClip: "text",
                         }}
                     >
-                        ​Le Centre de Langues et de Communication, également
-                        connu sous le nom de Centre Socioculturel Hay Adil, a
-                        été mis en place en 2006 grâce à l'initiative de la
-                        Fondation Mohammed V, qui a alloué un local à
-                        l'association Initiative Urbaine et à l'Association
-                        Marocaine de Solidarité et d'Action Sociale. Ce centre
-                        est situé sur le boulevard de la Grande Ceinture,
-                        quartier Hay Adil, à Casablanca.
+                   {traductionTitle(texts,'about')}
                     </p>
                     <Link to="/About" className="hover:opacity-[0.6]">
                         {" "}
@@ -50,8 +46,7 @@ const About = () => {
                             data-aos="fade-up"
                             className=" w-full h-11 font-B bg-orangeColor transition-all   text-white rounded "
                         >
-                            Savoir Plus
-                        </button>
+{traductionTitle(Titles,'readMore')}                        </button>
                     </Link>
                 </div>
             </div>

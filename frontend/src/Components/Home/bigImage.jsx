@@ -70,6 +70,7 @@ const BigImage = () => {
     }, [currentIndex]);
     return (
         <div
+        dir="ltr"
             style={{
                 background: "url(" + Background + ")",
                 backgroundRepeat: "no-repeat",
@@ -79,8 +80,8 @@ const BigImage = () => {
         >
             <div className="flex  h-full     flex-col-reverse items-center md:flex-row   w-full  md:justify-between  ">
                 <div className="left w-full h-full flex-1   justify-around flex flex-col    text-white md:justify-center md:gap-y-10 ">
-                    <h1 className="text-2xl leading-relaxed  w-full md:text-4xl font-A tracking-wider  md:leading-loose">
-                        {titleWrited}
+                    <h1 style={{textShadow:'1px 1px 0px black'}} className=" text-2xl leading-relaxed  w-full md:text-4xl font-A tracking-wider  md:leading-loose">
+                        {titleWrited} <span className="font-light animate-spin">|</span>
                     </h1>
                     <p
                         data-aos="fade-right"

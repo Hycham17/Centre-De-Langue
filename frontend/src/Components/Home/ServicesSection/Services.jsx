@@ -7,99 +7,173 @@ import Alphabitésation from "./../../../assets/HomePage/Services/Alphabétisati
 import SoutienScolaire from "./../../../assets/HomePage/Services/Soutienscolaire.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { faChevronCircleLeft, faChevronCircleRight, faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import {
+    faChevronCircleLeft,
+    faChevronCircleRight,
+    faSquareArrowUpRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { Titles } from "../../../data/titles";
 const services = [
     {
-        id: 1,
-        title: "Soutien Scolaire",
-        description:
-            "Ce service s’adresse aux élèves du primaire, du collège et du lycée qui rencontrent des difficultés ou souhaitent simplement renforcer leurs acquis. Nos professeurs qualifiés proposent un accompagnement personnalisé dans toutes les matières principales : mathématiques, physique-chimie, français, SVT, anglais, etc. Nous privilégions une approche pédagogique bienveillante, avec des outils modernes, des évaluations régulières et un suivi individualisé pour chaque élève. L’objectif est de restaurer la confiance en soi, améliorer les résultats scolaires, et développer une autonomie dans l’apprentissage.",
-        photo: SoutienScolaire,
+      id: 1,
+      photo: SoutienScolaire,
+      title: {
+        fr: "Soutien Scolaire",
+        en: "Academic Support",
+        ar: "الدعم المدرسي",
+      },
+      description: {
+        fr: "Ce service s’adresse aux élèves du primaire, du collège et du lycée...",
+        en: "This service is for primary, middle, and high school students facing difficulties or wanting to strengthen their knowledge...",
+        ar: "يستهدف هذا البرنامج تلاميذ الابتدائي والإعدادي والثانوي الذين يواجهون صعوبات أو يرغبون في تعزيز مكتسباتهم...",
+      },
     },
     {
-        id: 2,
-        title: "Bureautique",
-        description:
-            "Nos formations en bureautique permettent aux apprenants, quel que soit leur niveau, de maîtriser les outils informatiques les plus utilisés dans le monde professionnel : Word (mise en forme de documents, insertion d’images, tableaux), Excel (formules, tableaux croisés dynamiques, gestion de données), PowerPoint (création de présentations attractives). Les modules sont orientés vers la pratique, avec des exercices concrets adaptés aux besoins de chacun : étudiants, chercheurs d’emploi, employés ou entrepreneurs. À la fin du parcours, chaque participant sera capable de créer des documents professionnels de qualité.",
-        photo: bureautiqueImg,
+      id: 2,
+      photo: bureautiqueImg,
+      title: {
+        fr: "Bureautique",
+        en: "Office Software Training",
+        ar: "التكوين في البرامج المكتبية",
+      },
+      description: {
+        fr: "Nos formations en bureautique permettent aux apprenants de maîtriser Word, Excel, PowerPoint à travers des exercices pratiques adaptés...",
+        en: "Our training helps learners master Word, Excel, and PowerPoint through practical exercises tailored to each need...",
+        ar: "توفر دوراتنا في البرمجيات المكتبية تكويناً عملياً في Word وExcel وPowerPoint حسب احتياجات كل متعلم...",
+      },
     },
     {
-        id: 3,
-        title: "Alphabétisation",
-        description:
-            "Ce service est destiné principalement aux femmes n’ayant pas eu accès à l’éducation dans leur enfance. À travers des ateliers conviviaux et progressifs, elles apprennent à lire, écrire, et compter, dans un cadre respectueux et motivant. L’objectif est de leur permettre d’être autonomes dans leur quotidien : lire une ordonnance, comprendre des documents administratifs, gérer un budget simple, ou même aider leurs enfants dans leur scolarité. Ce programme favorise aussi l’estime de soi, la confiance en ses capacités et l’intégration sociale des participantes.",
-        photo: Alphabitésation,
+      id: 3,
+      photo: Alphabitésation,
+      title: {
+        fr: "Alphabétisation",
+        en: "Literacy",
+        ar: "محو الأمية",
+      },
+      description: {
+        fr: "Ce service est destiné principalement aux femmes n’ayant pas eu accès à l’éducation, pour leur permettre d’apprendre à lire, écrire et compter...",
+        en: "This service is mainly for women who didn’t have access to education, helping them learn to read, write, and count...",
+        ar: "يستهدف هذا البرنامج أساسًا النساء اللواتي لم يتسن لهن فرصة التعلم، لمساعدتهن على القراءة والكتابة والحساب...",
+      },
     },
     {
-        id: 4,
-        title: "Langues",
-        description:
-            "Ce programme vise à développer les compétences linguistiques des participants dans plusieurs langues vivantes : français, anglais, espagnol, allemand. Chaque langue est enseignée à travers une méthode communicative mettant l’accent sur l’expression et la compréhension orale. Des activités variées (dialogues, jeux de rôles, écoutes, vidéos) permettent d’apprendre dans une ambiance dynamique. Un test de niveau est proposé au début afin de placer chaque apprenant dans le groupe le plus adapté. Nos enseignants natifs ou expérimentés accompagnent les élèves vers des objectifs précis : réussir un examen, voyager, travailler à l’étranger, ou tout simplement s’exprimer avec aisance.",
-        photo: "https://picsum.photos/200/300",
-    },
-
-    {
-        id: 5,
-        title: "Sorties éducatives",
-        description:
-            "Les sorties éducatives sont organisées régulièrement pour compléter les apprentissages théoriques par des expériences concrètes. Musées, expositions, bibliothèques, jardins botaniques, sites historiques… ces visites sont encadrées par des éducateurs ou des guides spécialisés. Elles permettent aux enfants et aux jeunes de découvrir le patrimoine culturel, scientifique et naturel tout en développant leur curiosité, leur esprit critique et leur ouverture au monde. Des fiches pédagogiques et des activités de retour sont souvent prévues pour prolonger les apprentissages après la sortie.",
-        photo: SoutienScolaire,
-    },
-    {
-        id: 6,
-        title: "Développement personnel",
-        description:
-            "Le développement personnel est au cœur de notre pédagogie. À travers des ateliers thématiques (confiance en soi, prise de parole, gestion du stress, communication non violente, intelligence émotionnelle...), les participants acquièrent des compétences psychosociales essentielles pour leur épanouissement personnel, scolaire ou professionnel. Ces séances sont animées par des coachs et des formateurs spécialisés qui utilisent des outils variés comme la PNL, les jeux de rôle, la relaxation, l’art-thérapie ou le travail en groupe. Chaque participant est encouragé à mieux se connaître, à valoriser ses qualités et à dépasser ses blocages.",
-        photo: "https://picsum.photos/200/300",
+      id: 4,
+      photo: "https://picsum.photos/200/300",
+      title: {
+        fr: "Langues",
+        en: "Languages",
+        ar: "اللغات",
+      },
+      description: {
+        fr: "Des cours de langues vivantes (français, anglais, espagnol, allemand) avec une méthode communicative, interactive et adaptée au niveau de chacun...",
+        en: "Language courses (French, English, Spanish, German) using a communicative, interactive method adapted to all levels...",
+        ar: "دروس في اللغات الحية (الفرنسية، الإنجليزية، الإسبانية، الألمانية) بطريقة تفاعلية تواصلية تراعي مستوى كل متعلم...",
+      },
     },
     {
-        id: 7,
-        title: "Activités ludiques",
-        description:
-            "Parce que l’apprentissage passe aussi par le jeu, nous proposons de nombreuses activités ludiques pour les enfants et les jeunes : jeux éducatifs, concours, ateliers créatifs (peinture, bricolage), théâtre, chants, animations thématiques (journée de la science, soirée contes...). Ces moments permettent de développer la créativité, la coopération, la motricité fine, le langage, et surtout de vivre ensemble dans le respect et la joie. C’est aussi un excellent moyen de renforcer les liens sociaux et de valoriser les talents individuels.",
-        photo: "https://picsum.photos/200/300",
+      id: 5,
+      photo: SoutienScolaire,
+      title: {
+        fr: "Sorties éducatives",
+        en: "Educational Trips",
+        ar: "رحلات تعليمية",
+      },
+      description: {
+        fr: "Des sorties culturelles et pédagogiques pour explorer musées, jardins, sites historiques, enrichir les connaissances et éveiller la curiosité...",
+        en: "Educational and cultural trips to explore museums, gardens, historical sites, enriching knowledge and stimulating curiosity...",
+        ar: "تنظيم خرجات ثقافية وتعليمية لزيارة المتاحف، الحدائق، والمواقع التاريخية لتعزيز المعرفة وتنمية الفضول المعرفي...",
+      },
     },
     {
-        id: 8,
-        title: "Coaching Scolaire",
-        description:
-            "Le coaching scolaire s’adresse aux élèves en difficulté ou en manque de motivation. Nos coachs spécialisés aident les jeunes à identifier leurs freins, à se fixer des objectifs clairs, et à mettre en place des stratégies efficaces : gestion du temps, méthodologie de travail, organisation personnelle, mémorisation, préparation aux examens… À travers un accompagnement bienveillant et structuré, nous cherchons à redonner goût à l’apprentissage et à renforcer la confiance en soi. Les parents sont également intégrés au processus pour un meilleur suivi et des résultats durables.",
-        photo: "https://picsum.photos/200/300",
+      id: 6,
+      photo: "https://picsum.photos/200/300",
+      title: {
+        fr: "Développement personnel",
+        en: "Personal Development",
+        ar: "التنمية الذاتية",
+      },
+      description: {
+        fr: "Des ateliers (confiance en soi, gestion du stress...) animés par des experts pour mieux se connaître, dépasser ses blocages, et s’épanouir...",
+        en: "Workshops (self-confidence, stress management...) led by experts to promote self-knowledge, growth, and success...",
+        ar: "ورشات (الثقة بالنفس، إدارة التوتر...) يشرف عليها مختصون لمساعدة المشاركين على التطور وتحقيق ذواتهم...",
+      },
     },
-];
+    {
+      id: 7,
+      photo: "https://picsum.photos/200/300",
+      title: {
+        fr: "Activités ludiques",
+        en: "Fun Activities",
+        ar: "أنشطة ترفيهية",
+      },
+      description: {
+        fr: "Jeux, concours, théâtre, bricolage... pour apprendre en s’amusant, développer la créativité et tisser des liens sociaux...",
+        en: "Games, contests, theater, crafts... learning while having fun, enhancing creativity, and strengthening social bonds...",
+        ar: "ألعاب، مسابقات، مسرح، أشغال يدوية... للتعلم من خلال المتعة، وتعزيز الإبداع، وتقوية الروابط الاجتماعية...",
+      },
+    },
+    {
+      id: 8,
+      photo: "https://picsum.photos/200/300",
+      title: {
+        fr: "Coaching Scolaire",
+        en: "School Coaching",
+        ar: "التوجيه المدرسي",
+      },
+      description: {
+        fr: "Accompagnement personnalisé des élèves pour gérer le temps, organiser le travail, préparer les examens, avec implication des parents...",
+        en: "Personalized support for students to manage time, organize study, and prepare for exams, with parental involvement...",
+        ar: "مواكبة فردية للتلاميذ لتنظيم الوقت، تحسين طرق المراجعة، والاستعداد للامتحانات بمشاركة الآباء...",
+      },
+    },
+  ];
+  
 
 const Services = () => {
     //Afficher drop down
-    const { AfficherDropDown } = useCustomHooks();
+    //traduction
+    const { AfficherDropDown, traductionTitle } = useCustomHooks();
     //services Slider
     const [Currentindex, setCurrentIndex] = useState(0);
 
-
     return (
         <section className="flex  flex-col  px-5  gap-y-6 ">
-            <SectionTitle title="Nos Services" />
+            <SectionTitle title="services" />
             <div className="w-full relative">
-            <div className="  services grid  place-self-center gap-5    sm:grid-cols-2 md:grid-cols-3    ">
-                {/* sort(()=>Math.random()-0.5) */}
-                {services.slice(3 * Currentindex, (Currentindex + 1) * 3).map((item) => {
-                    return <ServiceCard {...item} key={item.id} />;
-                })} 
-            </div>
-{(Currentindex + 1) * 3<services.length-1 &&            <button onClick={()=>setCurrentIndex(prev=>prev+1)} className="absolute text-iconColor text-3xl -top-14  right-0 active:text-blackColor"><FontAwesomeIcon icon={faChevronCircleRight}/></button>
-}         
+                <div className="  services grid  place-self-center gap-5    sm:grid-cols-2 md:grid-cols-3    ">
+                    {/* sort(()=>Math.random()-0.5) */}
+                    {services
+                        .slice(3 * Currentindex, (Currentindex + 1) * 3)
+                        .map((item) => {
+                            return <ServiceCard {...item} key={item.id} />;
+                        })}
+                </div>
+                {(Currentindex + 1) * 3 < services.length - 1 && (
+                    <button
+                        onClick={() => setCurrentIndex((prev) => prev + 1)}
+                        className="absolute text-iconColor text-3xl -top-14  right-0 active:text-blackColor"
+                    >
+                        <FontAwesomeIcon icon={faChevronCircleRight} />
+                    </button>
+                )}
 
-{Currentindex>0 &&   <button onClick={()=>setCurrentIndex(prev=>prev-1)} className="absolute text-iconColor text-3xl -top-14  left-0 active:text-blackColor"><FontAwesomeIcon icon={faChevronCircleLeft}/></button>
-}
+                {Currentindex > 0 && (
+                    <button
+                        onClick={() => setCurrentIndex((prev) => prev - 1)}
+                        className="absolute text-iconColor text-3xl -top-14  left-0 active:text-blackColor"
+                    >
+                        <FontAwesomeIcon icon={faChevronCircleLeft} />
+                    </button>
+                )}
             </div>
             <div className="flex my-10 justify-center items-center">
                 <button
                     onClick={() => AfficherDropDown()}
                     className=" w-[50%] h-11 font-B bg-orangeColor transition-all  hover:opacity-[0.6] text-white  md:w-[30%] rounded md:mx-auto "
                 >
-                    Savoir plus
+                    {traductionTitle(Titles,'discoverMore')}
                 </button>
             </div>
-            
         </section>
     );
 };

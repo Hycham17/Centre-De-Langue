@@ -1,6 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SectionTitle from "../Components/GlobalComponents/SectionTitle";
-import { faCheck, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCheckCircle,
+    faGraduationCap,
+    faBriefcase,
+    faHeart,
+    faUserCheck,
+    faHandHoldingHeart,
+    faUniversalAccess,
+    faLightbulb,
+    faScaleBalanced,
+    faHandshake,
+} from "@fortawesome/free-solid-svg-icons"; 
+
+import { useCustomHooks } from "../Context/contextApi";
 const navItems = [
     {
         id: "creation",
@@ -61,18 +74,6 @@ const missions = [
     },
 ];
 
-import {
-    faGraduationCap,
-    faBriefcase,
-    faHeart,
-    faUserCheck,
-    faHandHoldingHeart,
-    faUniversalAccess,
-    faLightbulb,
-    faScaleBalanced,
-    faHandshake,
-} from "@fortawesome/free-solid-svg-icons";
-import { useCustomHooks } from "../Context/contextApi";
 
 const valeurs = [
     {
@@ -130,32 +131,18 @@ const valeurs = [
         label_ar: "التعاون والشراكات",
     },
 ];
-const titles= {
-    "mission": {
-        "ar": "مهمتنا",
-        "fr": "Notre mission",
-        "en": "Our mission"
-    },
-    "values": {
-        "ar": "قيمنا",
-        "fr": "Nos valeurs",
-        "en": "Our values"
-    },
-    "creation": {
-        "ar": "التأسيس",
-        "fr": "La création",
-        "en": "Creation"
-    }
-};
+
 
 const About = () => {
     //get language
     //dark mode
     //traduction for title
-    const { currentLangAbrev,traductionTitle,isDarkMode,traductionFunction } = useCustomHooks();
-    
-
- 
+    const {
+        currentLangAbrev,
+       
+        isDarkMode,
+        traductionFunction,
+    } = useCustomHooks();
 
     return (
         <div className="p-5 overflow-hidden  ">
@@ -176,9 +163,7 @@ const About = () => {
                 </ul>
             </div>
             <div id="creation">
-                <SectionTitle
-                    title={traductionTitle(titles,'creation')}
-                />
+                <SectionTitle title="creation" />
                 <div className="flex flex-col gap-y-5  md:flex-row md:justify-between md:gap-x-11 md:items-center">
                     <div
                         data-aos="fade-right"
@@ -200,16 +185,17 @@ const About = () => {
                             "خصصت مؤسسة محمد الخامس فضاءً اجتماعياً في منطقة روش نوار"
                         )}
                         <span className="bg-gradient-to-tr from-orangeColor to-black/5 text-transparent bg-clip-text">
-                           {' '}  «
+                            {" "}
+                            «
                             {traductionFunction(
                                 " Centre socioculturel Hay Adil",
                                 "Sociocultural Center Hay Adil",
                                 "المركز السوسيوثقافي حي عادل"
                             )}
-                            »  {' '}
+                            »{" "}
                         </span>
                         {traductionFunction(
-                            " le 10 Octobre 2006 à l’Association Initiative Urbaine & à l’Association Marocaine pour la Solidarité et l’ActionSociale (Réunies dans le Réseau des Associations Unies pour la Qualification Sociale) Aujourd’hui Centre de Langues et de Communicatio",
+                            " le 10 Octobre 2006 à l’Association Initiative Urbaine & à l’Association Marocaine pour la Solidarité et l’ActionSociale (Réunies dans le Réseau des Associations Unies pour la Qualification Sociale) Aujourd’hui Centre de Langues et de Communication.",
                             "On October 10, 2006, to the Urban Initiative Association & the Moroccan Association for Solidarity and Social Action (gathered in the Network of United Associations for Social Qualification), now known as the Center for Languages and Communication.",
                             "في 10 أكتوبر 2006، إلى جمعية المبادرة الحضرية والجمعية المغربية للتضامن والعمل الاجتماعي (المجتمعتين في شبكة الجمعيات المتحدة من أجل التأهيل الاجتماعي)، وهو اليوم مركز اللغات والتواصل."
                         )}
@@ -217,8 +203,7 @@ const About = () => {
                 </div>
             </div>
             <div id="nosmissions">
-                <SectionTitle
-title={traductionTitle(titles,'mission')}                />
+                <SectionTitle title="mission" />
                 <div className="flex flex-col gap-y-5  md:flex-row-reverse md:justify-between md:gap-x-11 md:items-center">
                     <div
                         data-aos="fade-left"
@@ -232,8 +217,8 @@ title={traductionTitle(titles,'mission')}                />
                     </div>
                     <ul className="w-full  flex flex-col gap-y-3 ">
                         {missions.map((item, index) => (
-                            <li 
-                            key={index}
+                            <li
+                                key={index}
                                 data-aos={
                                     index % 2 == 0 ? "fade-left" : "fade-right"
                                 }
@@ -248,15 +233,14 @@ title={traductionTitle(titles,'mission')}                />
                                     }
                                     icon={faCheckCircle}
                                 />{" "}
-                                {item["label_" + currentLangAbrev]}
+                                {item["label_" + currentLangAbrev]},
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>{" "}
             <div id="nosvaleurs">
-                <SectionTitle
-title={traductionTitle(titles,'values')}                />
+                <SectionTitle title="values" />
                 <div className="flex flex-col gap-y-5  md:flex-row md:justify-between md:gap-x-11 md:items-center">
                     <div
                         data-aos="fade-right"
@@ -271,7 +255,7 @@ title={traductionTitle(titles,'values')}                />
                     <ul className="w-full  grid grid-cols-2 md:grid-cols-3 gap-4">
                         {valeurs.map((item, index) => (
                             <li
-                            key={index}
+                                key={index}
                                 data-aos={
                                     index % 2 == 0 ? "fade-down" : "fade-up"
                                 }

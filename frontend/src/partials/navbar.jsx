@@ -184,7 +184,7 @@ const Navbar = () => {
                                                 if (versionDesktop) {
                                                     return {
                                                         color: "var(--orangeColor)",
-                                                        fontWeight: "bold",
+
                                                     };
                                                 } else {
                                                     return {

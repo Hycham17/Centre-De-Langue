@@ -23,7 +23,8 @@ export default {
                 I: ['"Oxygen"', 'sans-serif'],
                 J: ['"Righteous"', 'cursive'],
                 K: ['"Titan One"', 'cursive'],
-                L: ['"Ubuntu"', 'sans-serif']
+                L: ['"Ubuntu"', 'sans-serif'],
+                M:["Readex Pro", "sans-serif"]
               }
         },
     },
