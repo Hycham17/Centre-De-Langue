@@ -6,14 +6,19 @@ import { useCustomHooks } from "../Context/contextApi.jsx";
 import { useEffect } from "react";
 
 const Layout = () => {
+    // Traduction 
     const { currentLangAbrev } = useCustomHooks();
     useEffect(() => {
         const SetAttribute = (value) => {
             document.querySelector("Html").setAttribute("dir", value);
         };
 
-        currentLangAbrev=='ar'?SetAttribute('rtl'):SetAttribute('ltr')
+        currentLangAbrev == "ar" ? SetAttribute("rtl") : SetAttribute("ltr");
     }, [currentLangAbrev]);
+    // scroll 0 initialement
+    useEffect(() => {
+window.scrollTo({left:0,top:0})
+    },[]);
     return (
         <div>
             <Navbar />

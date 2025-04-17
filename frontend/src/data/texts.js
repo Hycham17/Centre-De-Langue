@@ -5,5 +5,10 @@ export const texts={
         en: "The Language and Communication Center, also known as the Sociocultural Center Hay Adil, was established in 2006 through the initiative of the Mohammed V Foundation, which allocated a space to the Initiative Urbaine association and the Moroccan Association for Solidarity and Social Action. The center is located on Boulevard de la Grande Ceinture, in the Hay Adil district of Casablanca.",
         
         ar: "تم إنشاء مركز اللغات والتواصل، المعروف أيضًا باسم المركز السوسيوثقافي حي عادل، سنة 2006 بمبادرة من مؤسسة محمد الخامس، التي خصصت مقراً لجمعية المبادرة الحضرية والجمعية المغربية للتضامن والعمل الاجتماعي. يقع هذا المركز في شارع الحزام الكبير، حي عادل، الدار البيضاء."
+      },
+      NewsLetter:{
+        fr: "Inscrivez-vous à notre newsletter",
+        en: "Sign up for our newsletter",
+        ar: "اشترك في نشرتنا الإخبارية",
       }
     }

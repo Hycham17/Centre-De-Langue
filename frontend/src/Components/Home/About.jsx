@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SectionTitle from "../GlobalComponents/SectionTitle";
-import photo from "./../../assets/CentrePhotos/photoCentre.png"
+import photo from "./../../assets/CentrePhotos/photoCentre.png";
 import { useCustomHooks } from "../../Context/contextApi";
 import { Titles } from "../../data/titles";
 import { texts } from "../../data/texts";
@@ -26,7 +26,8 @@ const About = () => {
                         className="text-center text-3xl tracking-wider font-H text-blackColor font-semibold capitalize"
                         data-aos="fade-down"
                     >
-{traductionTitle(Titles,'socioCulturalCenter')}                    </h1>
+                        {traductionTitle(Titles, "socioCulturalCenter")}{" "}
+                    </h1>
                     <p
                         data-aos="zoom-in"
                         className="text-justify font-E "
@@ -38,7 +39,7 @@ const About = () => {
                             WebkitBackgroundClip: "text",
                         }}
                     >
-                   {traductionTitle(texts,'about')}
+                        {traductionTitle(texts, "about")}
                     </p>
                     <Link to="/About" className="hover:opacity-[0.6]">
                         {" "}
@@ -46,12 +47,11 @@ const About = () => {
                             data-aos="fade-up"
                             className=" w-full h-11 font-B bg-orangeColor transition-all   text-white rounded "
                         >
-{traductionTitle(Titles,'readMore')}                        </button>
+                            {traductionTitle(Titles, "readMore")}{" "}
+                        </button>
                     </Link>
                 </div>
             </div>
-
-            
         </section>
     );
 };

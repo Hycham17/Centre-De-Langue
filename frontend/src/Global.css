@@ -3,25 +3,30 @@
     --blueColor: #00acff;
     --orangeColor: #f49100;
     --iconColor: #6d6d6d;
-    --blackColor: #000;
+    --blackColor: #333333;
     --whiteColor: #fff;
     /*DARK MODE*/
     scroll-behavior: smooth;
-   
 }
-.darkMode{
-     --blackColor: #fff;
+.darkMode {
+    --blackColor: #fff;
     --whiteColor: #000;
 }
-body{
+body {
     background: var(--whiteColor);
 }
 * {
-
     box-sizing: border-box;
 }
+/*------About Page------*/
+.valeurCard {
+transition: 1s !important;    
+}
 
-.valeurCard:nth-child(2n+1):hover{
-background: var(--orangeColor);
+
+.card:hover {
+    scale: 1.02 !important;
+    transition: 0.5s !important;
 
 }
+

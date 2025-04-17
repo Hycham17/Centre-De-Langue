@@ -6,6 +6,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Inscription from "./pages/Inscription";
 import About from "./pages/About.jsx";
+import ErrorNotFound from "./pages/ErrorNotFound.jsx";
+import DetailService from "./DetailService.jsx";
 const App = () => {
 useEffect(()=>{
     AOS.init({
@@ -16,6 +18,10 @@ useEffect(()=>{
    
     const Routes_=[
         {
+path:'*',
+element:<ErrorNotFound/>
+        },
+        {
             path:'/inscription',
             element:<Inscription/>
         },
@@ -23,6 +29,10 @@ useEffect(()=>{
             path:'/About',
             element:<About/>
         },
+        {
+            path:'Langues',
+            element:<DetailService/>
+        }
     ]
     return (
         <Routes>

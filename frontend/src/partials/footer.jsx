@@ -39,7 +39,7 @@ const social = [
 const contact = [
     {
         method: "E-mail",
-        value: "contact@iuhm.org",
+        value: "centredelangues@iuhm.org",
     },
     {
         method: "Fixe",
@@ -116,13 +116,13 @@ const Footer = () => {
                     </button>
                 </div>
             </div>
-            <div className="flex flex-col gap-y-4 md:items-center">
+            <div dir="ltr" className="flex flex-col gap-y-4 md:items-center">
                 <Title value="contact" />
                 <ul className="flex flex-col items-end md:items-start gap-y-2 font-D ">
                     {contact.map((item) => {
                         return (
                             <li
-                                className="w-full flex items-center justify-between gap-x-2 "
+                                className="w-full flex items-center md:justify-between gap-x-2 "
                                 key={item.value}
                             >
                                 {item.method + ":" + item.value}{" "}

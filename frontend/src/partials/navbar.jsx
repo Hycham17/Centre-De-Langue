@@ -12,50 +12,106 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const NavItems = [
     {
-      name: { fr: "Accueil", en: "Home", ar: "الصفحة الرئيسية" },
-      icon: faHome,
-      href: "/",
+        name: { fr: "Accueil", en: "Home", ar: "الصفحة الرئيسية" },
+        icon: faHome,
+        href: "/",
     },
     {
-      name: { fr: "Services", en: "Services", ar: "الخدمات" },
-      icon: faTasks,
-      href: "/Nos-services",
-      children: [
-        { name: { fr: "Langues", en: "Languages", ar: "اللغات" }, href: "/langues" },
-        { name: { fr: "Soutien scolaire", en: "School Support", ar: "الدعم المدرسي" }, href: "/soutien-scolaire" },
-        { name: { fr: "Bureautique", en: "Office Tools", ar: "الأدوات المكتبية" }, href: "/bureautique" },
-        { name: { fr: "Alphabétisation", en: "Literacy", ar: "محو الأمية" }, href: "/alphabetisation" },
-        { name: { fr: "Coaching scolaire", en: "School Coaching", ar: "التوجيه المدرسي" }, href: "/coaching-scolaire" },
-        { name: { fr: "Sorties éducatives", en: "Educational Trips", ar: "الرحلات التعليمية" }, href: "/sorties-educatives" },
-        { name: { fr: "Développement personnel", en: "Personal Development", ar: "التنمية الشخصية" }, href: "/developpement-personnel" },
-        { name: { fr: "Activités ludiques", en: "Fun Activities", ar: "الأنشطة الترفيهية" }, href: "/activites-ludiques" },
-      ],
+        name: { fr: "Services", en: "Services", ar: "الخدمات" },
+        icon: faTasks,
+        href: "/Nos-services",
+        children: [
+            {
+                name: { fr: "Langues", en: "Languages", ar: "اللغات" },
+                href: "/langues",
+            },
+            {
+                name: {
+                    fr: "Soutien scolaire",
+                    en: "School Support",
+                    ar: "الدعم المدرسي",
+                },
+                href: "/soutien-scolaire",
+            },
+            {
+                name: {
+                    fr: "Bureautique",
+                    en: "Office Tools",
+                    ar: "الأدوات المكتبية",
+                },
+                href: "/bureautique",
+            },
+            {
+                name: {
+                    fr: "Alphabétisation",
+                    en: "Literacy",
+                    ar: "محو الأمية",
+                },
+                href: "/alphabetisation",
+            },
+            {
+                name: {
+                    fr: "Coaching scolaire",
+                    en: "School Coaching",
+                    ar: "التوجيه المدرسي",
+                },
+                href: "/coaching-scolaire",
+            },
+            {
+                name: {
+                    fr: "Sorties éducatives",
+                    en: "Educational Trips",
+                    ar: "الرحلات التعليمية",
+                },
+                href: "/sorties-educatives",
+            },
+            {
+                name: {
+                    fr: "Développement personnel",
+                    en: "Personal Development",
+                    ar: "التنمية الشخصية",
+                },
+                href: "/developpement-personnel",
+            },
+            {
+                name: {
+                    fr: "Activités ludiques",
+                    en: "Fun Activities",
+                    ar: "الأنشطة الترفيهية",
+                },
+                href: "/activites-ludiques",
+            },
+        ],
     },
     {
-      name: { fr: "Evenements&Actualitées", en: "Events & News", ar: "الفعاليات والأخبار" },
-      icon: faTextHeight,
-      href: "/Evenements-Actualitées",
+        name: {
+            fr: "Evenements&Actualitées",
+            en: "Events & News",
+            ar: "الفعاليات والأخبار",
+        },
+        icon: faTextHeight,
+        href: "/Evenements-Actualitées",
     },
     {
-      name: { fr: "inscription", en: "Registration", ar: "التسجيل" },
-      icon: faUser,
-      href: "/inscription",
+        name: { fr: "inscription", en: "Registration", ar: "التسجيل" },
+        icon: faUser,
+        href: "/inscription",
     },
     {
-      name: { fr: "Apropos", en: "About", ar: "معلومات عنا" },
-      icon: faInfo,
-      href: "/about",
+        name: { fr: "Apropos", en: "About", ar: "معلومات عنا" },
+        icon: faInfo,
+        href: "/about",
     },
-  ];
-  
+];
 
-import logo from "../../../../logo.png";
+import logo2 from "./../assets/Logo/logo2.png";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { useCustomHooks } from "../Context/contextApi";
+import { Titles } from "../data/titles";
 const Navbar = () => {
     //dark mode
     const { isDarkMode, setisDarkMode } = useCustomHooks();
@@ -88,12 +144,17 @@ const Navbar = () => {
         document.querySelector("html").classList.toggle("darkMode", isDarkMode);
     }, [isDarkMode]);
 
-    //dropDown 
-    //currentLang 
+    //dropDown
+    //currentLang
     //traduction function
-    const { showServices, toggleDropDown, AfficherDropDown, HideDropDown,currentLangAbrev,traductionFunction } =
-        useCustomHooks();
-
+    const {
+        showServices,
+        toggleDropDown,
+        AfficherDropDown,
+        HideDropDown,
+        currentLangAbrev,
+        traductionTitle,
+    } = useCustomHooks();
 
     return (
         <nav className="select-none z-[99999999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
@@ -103,7 +164,7 @@ const Navbar = () => {
                         title="Centre SocioCulturel
 "
                         className=" h-full w-full object-cover"
-                        src={logo}
+                        src={logo2}
                         alt="Centre SocioCulturel
 "
                     />
@@ -138,7 +199,7 @@ const Navbar = () => {
                                             versionDesktop && HideDropDown()
                                         }
                                     >
-                                        <h1 className="hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2 tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D gap-x-4 ">
+                                        <h1 className="hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2 tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E gap-x-4 ">
                                             {item.name[currentLangAbrev]}{" "}
                                             {!versionDesktop && (
                                                 <FontAwesomeIcon
@@ -160,12 +221,17 @@ const Navbar = () => {
                                                                 className="w-full inline-block "
                                                             >
                                                                 <Link
-                                                                    className=" rounded text-blackColor  text-center text-xs transition-all hover:bg-orangeColor hover:text-white tracking-wider font-D p-2 w-full inline-block "
+                                                                    className=" rounded text-blackColor  text-center text-xs transition-all hover:bg-orangeColor hover:text-white tracking-wider font-E p-2 w-full inline-block "
                                                                     to={
                                                                         item.href
                                                                     }
                                                                 >
-                                                                    {item.name[currentLangAbrev]}
+                                                                    {
+                                                                        item
+                                                                            .name[
+                                                                            currentLangAbrev
+                                                                        ]
+                                                                    }
                                                                 </Link>
                                                             </li>
                                                         );
@@ -179,12 +245,11 @@ const Navbar = () => {
                                         style={({ isActive }) => {
                                             if (
                                                 isActive &&
-                                                item.name['fr'] !== "contact"
+                                                item.name["fr"] !== "contact"
                                             ) {
                                                 if (versionDesktop) {
                                                     return {
                                                         color: "var(--orangeColor)",
-
                                                     };
                                                 } else {
                                                     return {
@@ -196,7 +261,7 @@ const Navbar = () => {
                                                 }
                                             }
                                         }}
-                                        className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D "
+                                        className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent font-E "
                                         to={item.href}
                                     >
                                         {item.name[currentLangAbrev]}
@@ -204,12 +269,13 @@ const Navbar = () => {
                                 )}
                             </li>
                         ))}
-                        <li className=" relative  w-full  h-full inline-block">
+                        <li className="   w-full  h-full inline-block">
                             <a
-                                href="#contact"
-                                className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white md:hover:text-orangeColor  md:hover:bg-transparent md:hover:scale-[1.1] font-D "
+                                href="/#contact"
+                                className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E "
                             >
-{traductionFunction('contact','contact','إتصل بنا')}                            </a>
+                                {traductionTitle(Titles, "contact")}
+                            </a>
                         </li>
                         <button
                             onClick={() => {

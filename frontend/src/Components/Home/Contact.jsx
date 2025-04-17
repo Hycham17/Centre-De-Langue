@@ -3,11 +3,9 @@ import { inputs } from "../../data/inputs";
 import { Titles } from "../../data/titles";
 import SectionTitle from "../GlobalComponents/SectionTitle";
 
-  
-
 const Contact = () => {
     //la traduction
-   const {currentLangAbrev,traductionTitle}=useCustomHooks()
+    const { currentLangAbrev, traductionTitle } = useCustomHooks();
     return (
         <section className="px-5 p-2" id="contact">
             <SectionTitle title="contact" />
@@ -24,7 +22,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form md:w-full ">
-                    <form className="flex flex-col  gap-y-5">
+                    <form className="flex flex-col  gap-y-3">
                         {inputs.map((item, index) => {
                             return (
                                 <div
@@ -38,32 +36,39 @@ const Contact = () => {
                                         {item.name[currentLangAbrev]}
                                         <span className="text-[red]">*</span>:
                                     </label>
-                               {item.type!=='textarea'?     <input
-                                        required
-                                        placeholder={
-                                           item.placeholder[currentLangAbrev]+'...'
-                                        }
-                                        className="text-blackColor  font-E border-b bg-transparent  w-full h-11 pl-3 rounded outline-none transition-all focus:border-blueColor placeholder:text-sm"
-                                        type={item.type}
-                                        id={item.name.en}
-                                        name={item.name.en}
-                                    />:  <textarea
-                                    required
-                                    placeholder={item.placeholder[currentLangAbrev]+'...'}
-                                    name={item.name.en}
-                                    id={item.name.en}
-                                    className="text-blackColor  font-E border bg-transparent  w-full resize-none h-20 p-3 rounded outline-none transition-all focus:border-blueColor placeholder:text-sm"
-                                ></textarea>}
+                                    {item.type !== "textarea" ? (
+                                        <input
+                                            required
+                                            placeholder={
+                                                item.placeholder[
+                                                    currentLangAbrev
+                                                ] + "..."
+                                            }
+                                            className="text-blackColor  font-E border-b bg-transparent  w-full h-11 pl-3 rounded outline-none transition-all focus:border-blueColor placeholder:text-sm"
+                                            type={item.type}
+                                            id={item.name.en}
+                                            name={item.name.en}
+                                        />
+                                    ) : (
+                                        <textarea
+                                            required
+                                            placeholder={
+                                                item.placeholder[
+                                                    currentLangAbrev
+                                                ] + "..."
+                                            }
+                                            name={item.name.en}
+                                            id={item.name.en}
+                                            className="text-blackColor  font-E border bg-transparent  w-full resize-none h-24 p-3 rounded outline-none transition-all focus:border-blueColor placeholder:text-sm"
+                                        ></textarea>
+                                    )}
                                 </div>
                             );
                         })}
-                        <div className="flex flex-col gap-y-3">
-                          
-                          
-                        </div>
+                        <div className="flex flex-col gap-y-3"></div>
                         <div className="pt-3 flex justify-center items-center">
                             <button className=" w-full h-11 font-B bg-orangeColor transition-all  hover:opacity-[0.6] text-white rounded ">
-                                {traductionTitle(Titles,'send')}
+                                {traductionTitle(Titles, "send")}
                             </button>
                         </div>
                     </form>

@@ -1,145 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SectionTitle from "../Components/GlobalComponents/SectionTitle";
-import {
-    faCheckCircle,
-    faGraduationCap,
-    faBriefcase,
-    faHeart,
-    faUserCheck,
-    faHandHoldingHeart,
-    faUniversalAccess,
-    faLightbulb,
-    faScaleBalanced,
-    faHandshake,
-} from "@fortawesome/free-solid-svg-icons"; 
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { useCustomHooks } from "../Context/contextApi";
-const navItems = [
-    {
-        id: "creation",
-        label_fr: "creation",
-        label_en: "Creation",
-        label_ar: "التأسيس",
-    },
-    {
-        id: "nosmissions",
-        label_fr: "nos missions",
-        label_en: "Our Missions",
-        label_ar: "مهامنا",
-    },
-    {
-        id: "nosvaleurs",
-        label_fr: "nos valeurs",
-        label_en: "Our Values",
-        label_ar: "قيمنا",
-    },
-];
-const missions = [
-    {
-        label_fr: "Offrir une éducation de qualité accessible",
-        label_en: "Provide accessible quality education",
-        label_ar: "تقديم تعليم عالي الجودة وسهل الوصول إليه",
-    },
-    {
-        label_fr: "Assurer un suivi personnalisé des élèves",
-        label_en: "Ensure personalized student support",
-        label_ar: "ضمان متابعة شخصية للتلاميذ",
-    },
-    {
-        label_fr: "Impliquer les parents dans le processus éducatif",
-        label_en: "Involve parents in the educational process",
-        label_ar: "إشراك الآباء في العملية التعليمية",
-    },
-    {
-        label_fr:
-            "Créer un environnement chaleureux et propice à l’apprentissage",
-        label_en: "Create a warm and learning-friendly environment",
-        label_ar: "خلق بيئة دافئة ومناسبة للتعلم",
-    },
-    {
-        label_fr: "Maximiser l’impact social",
-        label_en: "Maximize social impact",
-        label_ar: "تعظيم الأثر الاجتماعي",
-    },
-    {
-        label_fr:
-            "Fournir un enseignement de qualité grâce à un personnel professionnel",
-        label_en: "Provide quality teaching through professional staff",
-        label_ar: "توفير تعليم عالي الجودة من خلال طاقم مهني",
-    },
-    {
-        label_fr: "Favoriser l’inclusion et l’égalité des chances",
-        label_en: "Promote inclusion and equal opportunities",
-        label_ar: "تعزيز الشمول وتكافؤ الفرص",
-    },
-];
-
-
-const valeurs = [
-    {
-        icon: faGraduationCap,
-        label_fr: "Éducation de qualité",
-        label_en: "Quality Education",
-        label_ar: "تعليم ذو جودة",
-    },
-    {
-        icon: faBriefcase,
-        label_fr: "Professionnalisme",
-        label_en: "Professionalism",
-        label_ar: "الاحترافية",
-    },
-    {
-        icon: faHeart,
-        label_fr: "Bienveillance et inclusion",
-        label_en: "Kindness and Inclusion",
-        label_ar: "اللطف والشمول",
-    },
-    {
-        icon: faUserCheck,
-        label_fr: "Accompagnement personnalisé",
-        label_en: "Personalized Support",
-        label_ar: "دعم مخصص",
-    },
-    {
-        icon: faHandHoldingHeart,
-        label_fr: "Engagement social",
-        label_en: "Social Commitment",
-        label_ar: "الالتزام الاجتماعي",
-    },
-    {
-        icon: faUniversalAccess,
-        label_fr: "Accessibilité pour tous",
-        label_en: "Accessibility for All",
-        label_ar: "إمكانية الوصول للجميع",
-    },
-    {
-        icon: faLightbulb,
-        label_fr: "Innovation pédagogique",
-        label_en: "Educational Innovation",
-        label_ar: "الابتكار التربوي",
-    },
-    {
-        icon: faScaleBalanced,
-        label_fr: "Responsabilité et transparence",
-        label_en: "Responsibility and Transparency",
-        label_ar: "المسؤولية والشفافية",
-    },
-    {
-        icon: faHandshake,
-        label_fr: "Collaboration et partenariats",
-        label_en: "Collaboration and Partnerships",
-        label_ar: "التعاون والشراكات",
-    },
-];
-
-
+import { missions, navItems, valeurs } from "../data/about";
+import img from "./../assets/About/img1.png";
+import missionsimage from "./../assets/About/missions.jpeg";
+import valeursimage from "./../assets/About/valeurs.jpg";
 const About = () => {
     //get language
     //dark mode
     //traduction for title
     const {
         currentLangAbrev,
-       
+
         isDarkMode,
         traductionFunction,
     } = useCustomHooks();
@@ -171,8 +45,8 @@ const About = () => {
                     >
                         <img
                             className=" w-full h-full object-cover hover:scale-[1.1] transition-all duration-1000 "
-                            src="https://cdn.zido.ma/adresse/img_articles/44620b5e29aa1acf8bdc5d8935d7036fa4f5/detail/7193815104ed949f9deaf45165c4b8337013.png"
-                            alt=""
+                            src={img}
+                            alt="centre"
                         />
                     </div>
                     <p
@@ -211,8 +85,8 @@ const About = () => {
                     >
                         <img
                             className=" w-full h-full object-cover hover:scale-[1.1] transition-all duration-1000 "
-                            src="https://img.freepik.com/free-photo/successful-happy-business-team_53876-74892.jpg"
-                            alt=""
+                            src={missionsimage}
+                            alt="missions"
                         />
                     </div>
                     <ul className="w-full  flex flex-col gap-y-3 ">
@@ -248,8 +122,8 @@ const About = () => {
                     >
                         <img
                             className=" w-full h-full object-cover hover:scale-[1.1] transition-all duration-1000 "
-                            src="https://www.ulster.ac.uk/__data/assets/image/0020/1061930/varieties/width-2000.jpg"
-                            alt=""
+                            src={valeursimage}
+                            alt="valeurs"
                         />
                     </div>
                     <ul className="w-full  grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -264,7 +138,7 @@ const About = () => {
                                         ? { border: "1px double white" }
                                         : {}
                                 }
-                                className="valeurCard font-E select-none    text-sm  w-full shadow text-blackColor transition-all hover:scale-[1.05] duration-1000 hover:bg-blueColor hover:text-white  rounded p-2 flex flex-col gap-y-4 justify-center items-center text-center"
+                                className="valeurCard font-E select-none    text-sm  w-full shadow text-blackColor hover:scale-[1.05] odd:hover:bg-orangeColor  hover:bg-blueColor hover:text-white  rounded p-2 flex flex-col gap-y-4 justify-center items-center text-center"
                             >
                                 <FontAwesomeIcon
                                     className="text-2xl "

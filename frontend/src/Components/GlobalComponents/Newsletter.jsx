@@ -3,6 +3,9 @@ import { useCustomHooks } from "../../Context/contextApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faClose } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { Titles } from "../../data/titles";
+import { inputs } from "../../data/inputs";
+import { texts } from "../../data/texts";
 
 const Newsletter = () => {
     //NewsLetter
@@ -17,7 +20,8 @@ const Newsletter = () => {
     }, [showNewsLetter]);
     //onFocus
     const [focus, setFocus] = useState(false);
-
+//traduction 
+const {traductionTitle,currentLangAbrev}=useCustomHooks()
     return (
         <AnimatePresence>
             {showNewsLetter && (
@@ -45,8 +49,9 @@ const Newsletter = () => {
                                     shake
                                 />
                                 <h1 className="text-xl text-center md:text-2xl  font-D uppercase font-bold tracking-wider text-blackColor">
-                                    Inscrivez-vous à notre newsletter{" "}
+                                {traductionTitle(texts,'NewsLetter')}  
                                 </h1>
+
                             </div>
                             <form
                                 style={{
@@ -64,11 +69,10 @@ const Newsletter = () => {
                                     type="email"
                                     name="email"
                                     required
-                                    placeholder="Enter Votre Adresse email"
+                                    placeholder={traductionTitle(inputs[1],'placeholder')+'...'}
                                 />
                                 <button className="text-xs h-full inline-block w-[30%] text-white font-semibold tracking-wider font-B md:text-sm  hover:bg-gradient-to-bl transition-all bg-gradient-to-tr from-blueColor to-white">
-                                    S'abonner
-                                </button>
+{traductionTitle(Titles,'subscribe')}                                </button>
                             </form>
                         </div>
                     </motion.div>
