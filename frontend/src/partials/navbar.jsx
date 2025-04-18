@@ -19,11 +19,10 @@ const NavItems = [
     {
         name: { fr: "Services", en: "Services", ar: "الخدمات" },
         icon: faTasks,
-        href: "/Nos-services",
+
         children: [
             {
                 name: { fr: "Langues", en: "Languages", ar: "اللغات" },
-                href: "/langues",
             },
             {
                 name: {
@@ -31,15 +30,13 @@ const NavItems = [
                     en: "School Support",
                     ar: "الدعم المدرسي",
                 },
-                href: "/soutien-scolaire",
             },
             {
                 name: {
                     fr: "Bureautique",
-                    en: "Office Tools",
+                    en: "bureautique",
                     ar: "الأدوات المكتبية",
                 },
-                href: "/bureautique",
             },
             {
                 name: {
@@ -47,7 +44,6 @@ const NavItems = [
                     en: "Literacy",
                     ar: "محو الأمية",
                 },
-                href: "/alphabetisation",
             },
             {
                 name: {
@@ -55,7 +51,6 @@ const NavItems = [
                     en: "School Coaching",
                     ar: "التوجيه المدرسي",
                 },
-                href: "/coaching-scolaire",
             },
             {
                 name: {
@@ -63,7 +58,6 @@ const NavItems = [
                     en: "Educational Trips",
                     ar: "الرحلات التعليمية",
                 },
-                href: "/sorties-educatives",
             },
             {
                 name: {
@@ -71,7 +65,6 @@ const NavItems = [
                     en: "Personal Development",
                     ar: "التنمية الشخصية",
                 },
-                href: "/developpement-personnel",
             },
             {
                 name: {
@@ -79,7 +72,6 @@ const NavItems = [
                     en: "Fun Activities",
                     ar: "الأنشطة الترفيهية",
                 },
-                href: "/activites-ludiques",
             },
         ],
     },
@@ -105,13 +97,14 @@ const NavItems = [
 ];
 
 import logo2 from "./../assets/Logo/logo2.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { useCustomHooks } from "../Context/contextApi";
 import { Titles } from "../data/titles";
+import clsx from "clsx";
 const Navbar = () => {
     //dark mode
     const { isDarkMode, setisDarkMode } = useCustomHooks();
@@ -155,6 +148,8 @@ const Navbar = () => {
         currentLangAbrev,
         traductionTitle,
     } = useCustomHooks();
+    //get params
+    const { serviceName } = useParams();
 
     return (
         <nav className="select-none z-[99999999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
@@ -199,7 +194,13 @@ const Navbar = () => {
                                             versionDesktop && HideDropDown()
                                         }
                                     >
-                                        <h1 className="hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2 tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E gap-x-4 ">
+                                        <h1
+                                            className={clsx(
+                                                "hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E gap-x-4 ",
+                                                currentLangAbrev !== "ar" &&
+                                                    "tracking-[2px]"
+                                            )}
+                                        >
                                             {item.name[currentLangAbrev]}{" "}
                                             {!versionDesktop && (
                                                 <FontAwesomeIcon
@@ -220,10 +221,31 @@ const Navbar = () => {
                                                                 key={index}
                                                                 className="w-full inline-block "
                                                             >
-                                                                <Link
+                                                                <NavLink
+                                                                    style={
+                                                                        serviceName &&
+                                                                        serviceName
+                                                                            .toLowerCase()
+                                                                            .split(
+                                                                                "-"
+                                                                            )
+                                                                            .join(
+                                                                                " "
+                                                                            )
+                                                                            .toLowerCase() ==
+                                                                            item.name[
+                                                                                "en"
+                                                                            ].toLowerCase()
+                                                                            ? {
+                                                                                  background:
+                                                                                      "var(--orangeColor)",
+                                                                                  color: "white",
+                                                                              }
+                                                                            : {}
+                                                                    }
                                                                     className=" rounded text-blackColor  text-center text-xs transition-all hover:bg-orangeColor hover:text-white tracking-wider font-E p-2 w-full inline-block "
                                                                     to={
-                                                                        item.href
+                                                                       '/services/'+item.name['en'].split(' ').join('-').toLowerCase()
                                                                     }
                                                                 >
                                                                     {
@@ -232,7 +254,7 @@ const Navbar = () => {
                                                                             currentLangAbrev
                                                                         ]
                                                                     }
-                                                                </Link>
+                                                                </NavLink>
                                                             </li>
                                                         );
                                                     }
@@ -261,7 +283,11 @@ const Navbar = () => {
                                                 }
                                             }
                                         }}
-                                        className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent font-E "
+                                        className={clsx(
+                                            " w-full p-2 flex justify-center items-center  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent font-E ",
+                                            currentLangAbrev !== "ar" &&
+                                                "tracking-[2px]"
+                                        )}
                                         to={item.href}
                                     >
                                         {item.name[currentLangAbrev]}
@@ -272,7 +298,11 @@ const Navbar = () => {
                         <li className="   w-full  h-full inline-block">
                             <a
                                 href="/#contact"
-                                className=" w-full p-2 flex justify-center items-center  tracking-[2px] capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E "
+                                className={clsx(
+                                    " w-full p-2 flex justify-center items-center   capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E ",
+                                    currentLangAbrev !== "ar" &&
+                                        "tracking-[2px]"
+                                )}
                             >
                                 {traductionTitle(Titles, "contact")}
                             </a>

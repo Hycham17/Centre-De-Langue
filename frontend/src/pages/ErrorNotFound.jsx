@@ -4,9 +4,7 @@ import { useEffect } from "react"
 
 const ErrorNotFound = () => {
     const {traductionFunction}=useCustomHooks()
-    useEffect(()=>{
-document.body.style.overflow='hidden'
-    },[])
+  
   return (
     <div className="h-screen  flex-col gap-y-5 flex justify-center items-center">
         <h1 className="text-5xl text-blackColor font-A">{traductionFunction('Erreur 404','Error 404','خطأ 404')}</h1> 

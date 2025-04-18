@@ -10,28 +10,28 @@ const Langues = [
     {
         name: "français",
         logo: france,
-        title: "Centre de Langues et de communication",
+        title: "Centre De Langues et De Communication",
         text: "Venez nous rejoindre pour une pause linguistique.",
         btnText: "Rejoindre Maintenant !",
     },
     {
         name: "anglais",
         logo: england,
-        title: "Center for Languages ​​and Communication",
+        title: "Center For Languages ​​and Communication",
         text: "                  Come join us for a language break.",
         btnText: "Join Now!",
     },
     {
         name: "espagnole",
         logo: espagne,
-        title: "Centro de Lenguajes y Comunicaciones",
+        title: "Centro De Lenguajes y Comunicaciones",
         text: "    ¡Únase a nosotros para un descanso del idioma!                 ",
         btnText: "¡Únete ahora!",
     },
     {
         name: "allemande",
         logo: allemagne,
-        title: "Zentrum für Sprachen und Kommunikation",
+        title: "Zentrum Für Sprachen und Kommunikation",
         text: "               Gönnen Sie sich mit uns eine Sprachpause.",
         btnText: "Jetzt beitreten!",
     },
@@ -79,9 +79,9 @@ const BigImage = () => {
             className="h-[90vh] min-h-[90vh]   overflow-hidden flex flex-col px-5   justify-between items-center  w-full "
         >
             <div className="flex  h-full     flex-col-reverse items-center md:flex-row   w-full  md:justify-between  ">
-                <div className="left w-full h-full flex-1   justify-around flex flex-col    text-white md:justify-center md:gap-y-10 ">
+                <div className="left  w-full h-full flex-1   justify-around flex flex-col    text-white md:justify-center md:gap-y-10 ">
                     <h1 style={{textShadow:'1px 1px 0px black'}} className=" text-2xl leading-relaxed  w-full md:text-4xl font-A tracking-wider  md:leading-loose">
-                        {titleWrited} <span className="font-light animate-spin">|</span>
+                        {titleWrited} <span className="capitalize font-light animate-spin">|</span>
                     </h1>
                     <p
                         data-aos="fade-right"

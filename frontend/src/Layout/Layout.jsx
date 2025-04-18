@@ -16,9 +16,7 @@ const Layout = () => {
         currentLangAbrev == "ar" ? SetAttribute("rtl") : SetAttribute("ltr");
     }, [currentLangAbrev]);
     // scroll 0 initialement
-    useEffect(() => {
-window.scrollTo({left:0,top:0})
-    },[]);
+
     return (
         <div>
             <Navbar />
