@@ -8,6 +8,7 @@ import Inscription from "./pages/Inscription";
 import About from "./pages/About.jsx";
 import ErrorNotFound from "./pages/ErrorNotFound.jsx";
 import DetailService from "./pages/DetailService.jsx";
+import Events from "./pages/Events.jsx";
 const App = () => {
     useEffect(() => {
         AOS.init({
@@ -28,10 +29,15 @@ const App = () => {
         {
             path: "/About",
             element: <About />,
+        },  {
+            path: "/Events",
+            element: <Events />,
         },
         
      
     ];
+
+  
     return (
         <Routes>
             <Route path="/" element={<Layout />}>

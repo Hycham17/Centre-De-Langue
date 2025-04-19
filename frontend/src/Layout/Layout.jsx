@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../partials/footer";
 import Navbar from "../partials/navbar";
 import ElementPositionFixed from "../components/elemetsFixed/ElementPositionFixed.jsx";
@@ -6,7 +6,7 @@ import { useCustomHooks } from "../Context/contextApi.jsx";
 import { useEffect } from "react";
 
 const Layout = () => {
-    // Traduction 
+    // Traduction
     const { currentLangAbrev } = useCustomHooks();
     useEffect(() => {
         const SetAttribute = (value) => {
@@ -16,7 +16,10 @@ const Layout = () => {
         currentLangAbrev == "ar" ? SetAttribute("rtl") : SetAttribute("ltr");
     }, [currentLangAbrev]);
     // scroll 0 initialement
-
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0 });
+    }, [location]);
     return (
         <div>
             <Navbar />

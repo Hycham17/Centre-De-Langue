@@ -10,9 +10,10 @@ import activities from "./../assets/HomePage/Services/activity.png";
 export const services = [
     {
         id: 4,
-        name:'languages',
+        name:'languages ',
+        repeat:true,
         background:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0S4sYeBZWq796K3o45HNM8oEbNCUe9xJgDQ&s",
+            "https://miro.medium.com/v2/resize:fit:1400/1*r60mzB4og0bViURBvasYdg.jpeg",
         images: [langues],
         title: {
             fr: "Langues",

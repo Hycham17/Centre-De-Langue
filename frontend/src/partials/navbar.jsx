@@ -82,7 +82,7 @@ const NavItems = [
             ar: "الفعاليات والأخبار",
         },
         icon: faTextHeight,
-        href: "/Evenements-Actualitées",
+        href: "/Events",
     },
     {
         name: { fr: "inscription", en: "Registration", ar: "التسجيل" },

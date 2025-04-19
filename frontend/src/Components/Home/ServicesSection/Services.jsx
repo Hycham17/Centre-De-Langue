@@ -30,7 +30,7 @@ const Services = () => {
                     {services
                         .slice(3 * Currentindex, (Currentindex + 1) * 3)
                         .map((item) => {
-                            return <ServiceCard {...item} key={item.id} />;
+                            return <ServiceCard service={true} {...item} key={item.id} />;
                         })}
                 </div>
                 {(Currentindex + 1) * 3 < services.length - 1 && (
@@ -54,7 +54,7 @@ const Services = () => {
             <div className="flex my-10 justify-center items-center">
                 <button
                     onClick={() => AfficherDropDown()}
-                    className=" w-[50%] h-11 font-B bg-orangeColor transition-all  hover:opacity-[0.6] text-white  md:w-[30%] rounded md:mx-auto "
+                    className=" w-full sm:w-[50%] h-11 font-B bg-orangeColor transition-all  hover:opacity-[0.6] text-white  md:w-[30%] rounded md:mx-auto "
                 >
                     {traductionTitle(Titles,'discoverMore')}
                 </button>

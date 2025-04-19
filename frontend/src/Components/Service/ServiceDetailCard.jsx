@@ -5,49 +5,46 @@ import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
-const ServiceDetailCard = ({item}) => {
-    
+const ServiceDetailCard = ({ item }) => {
     //get Current language
     //index pour la déplacement entre les elemets de sldier
     const [currentIndexForSlider, setCurrentIndexForSlider] = useState(0);
     const { currentLangAbrev } = useCustomHooks();
-const { background, title, description, images }=item
+    const { background, title, description, images } = item;
 
-return (
-        <section 
-      
-            className=" overflow-hidden select-none min-h-[90vh] p-5 relative after:absolute z-[4] after:-z-[5] after:w-full after:h-full after:bg-gradient-to-tr after:from-[#0000ffcb] after:to-whiteColor   after:bg-white/9 0 after:left-0 after:top-0 "
+    return (
+        <section
+            className=" overflow-hidden select-none min-h-[90vh] p-5 relative after:absolute z-[4] after:-z-[5] after:w-full after:h-full after:bg-gradient-to-b after:from-[#004cffcb]  after:to-orangeColor   after:bg-white/9 0 after:left-0 after:top-0 "
             style={{
-                background:`url(${background})`,
-                backgroundRepeat:'no-repeat',
-                backgroundSize:'cover'
+                background: `url(${background||''})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize:"cover",
             }}
         >
             <div className=" w-full  md:w-2/3   mx-auto   h-full pt-10 flex flex-col gap-y-5">
                 <div className="flex justify-center items-center ">
                     <h1
-                        className={clsx(
-                            "text-white text-xl md:text-3xl uppercase font-A ",
-                            currentLangAbrev !== "ar" && "tracking-[3px]"
-                        )}
-                        style={{textShadow:'1px 0px 0px #000'}}
-                        data-aos="fade-down"
 
+                        className={clsx(
+                            "text-white text-center text-2xl  md:text-5xl  font-E",
+                            currentLangAbrev !== "ar" && "tracking-wider"
+                        )}
+                        style={{ textShadow: "1px 0px 0px #000" }}
+                        data-aos="fade-down"
                     >
-                        
-{title[currentLangAbrev]}
+                        {title[currentLangAbrev]}{' '} 
+
                     </h1>
                 </div>
                 <div className="images md:grid w-full  gap-5 grid-cols-1  md:grid-cols-2 lg:grid-cols-3   mx-auto hidden">
-                    {Array.from({length:6},(_,index) => {
+                    {Array.from({ length: 6 }, (_, index) => {
                         return (
                             <div
                                 key={index}
                                 className="transition-all duration-700 cursor-pointer hover:scale-[1.05] shadow-xl w-full h-[25rem] md:h-[15rem]   overflow-hidden rounded-2xl"
                             >
                                 <img
-                                                            data-aos={'zoom-out'}
-
+                                    data-aos={"zoom-out"}
                                     className="w-full bg-white h-full object-cover "
                                     src={images[0]}
                                     alt={"image nr: " + index + 1}
@@ -77,7 +74,7 @@ return (
                             <FontAwesomeIcon icon={faArrowAltCircleRight} />
                         </button>
                     )}
-                    {Array.from({length:6},(_,index) => {
+                    {Array.from({ length: 6 }, (_, index) => {
                         return (
                             <div
                                 key={index}
@@ -96,13 +93,15 @@ return (
                                     src={images[0]}
                                     alt={"image nr: " + index + 1}
                                 />
-                                
                             </div>
                         );
                     })}
                 </div>
                 <div className=" p-2 rounded">
-                    <p data-aos="zoom-out" className="text-xl rounded-b-2xl p-2  text-justify font-D text-white ">
+                    <p
+                        data-aos="zoom-out"
+                        className="text-xl rounded-b-2xl p-2  text-justify font-D text-white "
+                    >
                         {description[currentLangAbrev]}
                     </p>
                 </div>

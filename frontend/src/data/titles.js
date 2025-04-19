@@ -69,4 +69,20 @@ export const Titles = {
         en: "Discover more",
         ar: "اكتشف المزيد",
     },
+    event: {
+        fr: "événement",
+        en: "event",
+        ar: "فعالية",
+    },
+    recents: {
+        fr: "récents",
+        en: "recents",
+        ar: "الأحدث",
+    },
+    noEvents: {
+        fr: "pas d'événements",
+        en: "no events",
+        ar: "لا توجد فعاليات",
+    },
+    
 };
