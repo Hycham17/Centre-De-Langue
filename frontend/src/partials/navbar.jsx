@@ -77,7 +77,7 @@ const NavItems = [
     },
     {
         name: {
-            fr: "Evenements&Actualitées",
+            fr: "évenements&Actualitées",
             en: "Events & News",
             ar: "الفعاليات والأخبار",
         },
@@ -90,14 +90,14 @@ const NavItems = [
         href: "/inscription",
     },
     {
-        name: { fr: "Apropos", en: "About", ar: "معلومات عنا" },
+        name: { fr: "à propos", en: "About", ar: "معلومات عنا" },
         icon: faInfo,
         href: "/about",
     },
 ];
 
 import logo2 from "./../assets/Logo/logo2.png";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -148,9 +148,16 @@ const Navbar = () => {
         currentLangAbrev,
         traductionTitle,
     } = useCustomHooks();
-    //get params
+    //get params for custom active class
     const { serviceName } = useParams();
+//hide navbar when user click on Link 
+const location=useLocation() 
+useEffect(()=>{
+if(!versionDesktop){
+    setShowNavBar(false)
 
+}
+},[location.pathname])
     return (
         <nav className="select-none z-[99999999] bg-whiteColor  px-5 shadow fixed w-full left-0  md:shadow border-b    flex items-center justify-between lg:justify-normal md:gap-x-24   ">
             <Link to="/">
@@ -173,7 +180,7 @@ const Navbar = () => {
                                 ? { height: "100%", overflow: "visible" }
                                 : { height: 0, overflow: "hidden" }
                         }
-                        className="border border-t-0   shadow fixed left-0 top-[4.06rem] bg-whiteColor w-full right-0 flex gap-x-10 flex-col items-center gap-y-3 text-blackColor lg:static lg:flex-row  lg:shadow-none lg:border-none    "
+                        className="border border-t-0   shadow fixed left-0 top-[4.06rem] bg-whiteColor w-full right-0 flex justify-around  flex-col items-center gap-y-3 text-blackColor lg:static lg:flex-row  lg:shadow-none lg:border-none   "
                         animate={!versionDesktop ? { height: "434px" } : {}}
                     >
                         {NavItems.map((item, index) => (
@@ -196,7 +203,7 @@ const Navbar = () => {
                                     >
                                         <h1
                                             className={clsx(
-                                                "hover:text-white  cursor-pointer h-full w-full flex justify-center items-center p-2  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E gap-x-4 ",
+                                                "hover:text-white lg:text-sm cursor-pointer h-full w-full flex justify-center items-center p-2  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-blueColor lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E gap-x-4 ",
                                                 currentLangAbrev !== "ar" &&
                                                     "tracking-[2px]"
                                             )}
@@ -213,7 +220,7 @@ const Navbar = () => {
                                             )}
                                         </h1>
                                         {showServices && (
-                                            <ul className="absolute    z-[9999999999999999999999999999] w-full   md:top-[4.5rem] border md-border-none md:h-auto   bg-whiteColor left-0   rounded-b-md p-2 flex flex-col gap-y-2">
+                                            <ul className="absolute    z-[9999999999999999999999999999] w-full   md:top-[4.3rem]  border-t-0 md-border-none md:h-auto   bg-whiteColor left-0   rounded-b-md p-2 flex flex-col gap-y-2">
                                                 {item.children.map(
                                                     (item, index) => {
                                                         return (
@@ -284,7 +291,7 @@ const Navbar = () => {
                                             }
                                         }}
                                         className={clsx(
-                                            " w-full p-2 flex justify-center items-center  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent font-E ",
+                                            " w-full p-2 flex justify-center  lg:text-sm items-center  capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent font-E ",
                                             currentLangAbrev !== "ar" &&
                                                 "tracking-[2px]"
                                         )}
@@ -299,7 +306,7 @@ const Navbar = () => {
                             <a
                                 href="/#contact"
                                 className={clsx(
-                                    " w-full p-2 flex justify-center items-center   capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E ",
+                                    " w-full p-2 lg:text-sm flex justify-center items-center   capitalize transition-all duration-500 hover:bg-orangeColor hover:text-white lg:hover:text-orangeColor  lg:hover:bg-transparent  font-E ",
                                     currentLangAbrev !== "ar" &&
                                         "tracking-[2px]"
                                 )}
@@ -311,7 +318,7 @@ const Navbar = () => {
                             onClick={() => {
                                 setisDarkMode(!isDarkMode);
                             }}
-                            className="text-2xl transition-all hover:scale-[1.1] p-2 hover:text-orangeColor "
+                            className="text-2xl transition-all  hover:scale-[1.1] p-2 hover:text-orangeColor "
                         >
                             <FontAwesomeIcon
                                 icon={isDarkMode ? faSun : faMoon}

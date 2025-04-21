@@ -7,13 +7,21 @@ import devpersonnel from "./../assets/HomePage/Services/devpersonnel.png";
 import langues from "./../assets/HomePage/Services/langues.png";
 import CoachingSc from "./../assets/HomePage/Services/CoachingScolaire.png";
 import activities from "./../assets/HomePage/Services/activity.png";
+import languesService from "./../assets/ServicesBackground/languesService.jpg";
+import schoolcoaching from "./../assets/ServicesBackground/schoolcoaching.jpg";
+import soutienScolaire from "./../assets/ServicesBackground/soutienScolaire.png";
+import Bureautique from "./../assets/ServicesBackground/Bureautique.jpg";
+import alphabetisation from "./../assets/ServicesBackground/alphabetisation.png";
+import devP from "./../assets/ServicesBackground/devP.jpg";
+import educationaltrips from "./../assets/ServicesBackground/educationaltrips.png";
+import Activity from "./../assets/ServicesBackground/activities.png";
 export const services = [
     {
         id: 4,
-        name:'languages ',
-        repeat:true,
-        background:
-            "https://miro.medium.com/v2/resize:fit:1400/1*r60mzB4og0bViURBvasYdg.jpeg",
+        name: "languages",
+        repeat: true,
+        background: languesService,
+
         images: [langues],
         title: {
             fr: "Langues",
@@ -28,9 +36,8 @@ export const services = [
     },
     {
         id: 1,
-        name:'school-support',
-        background:
-            "https://emjpv36xdx4.exactdn.com/wp-content/uploads/2024/08/Approche-Montessori-soutien-scolaire.jpg?strip=all&lossy=1&quality=83&sharp=1&ssl=1",
+        name: "school-support",
+        background: soutienScolaire,
         images: [SoutienScolaire],
         title: {
             fr: "soutien scolaire",
@@ -45,8 +52,8 @@ export const services = [
     },
     {
         id: 2,
-        name:'bureautique',
-        background:"https://f.hellowork.com/blogdumoderateur/2023/04/Word-Excel-Powerpoint.jpg",
+        name: "bureautique",
+        background:Bureautique,
         images: [bureautiqueImg],
         title: {
             fr: "Bureautique",
@@ -56,14 +63,13 @@ export const services = [
         description: {
             fr: "Le centre offre des formations en bureautique qui permettent aux participants de maîtriser les outils informatiques essentiels tels que Microsoft Word, Excel et PowerPoint. Ces formations sont conçues pour être accessibles à tous, quel que soit le niveau de départ. Elles visent à améliorer l’employabilité des jeunes et des adultes en leur fournissant des compétences techniques directement applicables dans le monde professionnel ou dans les études supérieures. L’approche est pratique, avec des exercices concrets pour garantir une bonne prise en main des logiciels.",
             en: "The center provides practical training in essential office tools, including Microsoft Word, Excel, and PowerPoint. These courses are designed for beginners and focus on hands-on learning. They help participants gain useful digital skills that can be applied in both professional environments and higher education.",
-            ar: "يوفّر المركز دورات تكوينية في مجال الإعلاميات المكتبية، تُمكّن المشاركين من التحكم في أدوات مثل Microsoft Word وExcel وPowerPoint. هذه الدورات مناسبة للمبتدئين وتُركز على الجانب التطبيقي، بهدف تقوية الكفاءات المهنية وتحسين فرص الحصول على عمل أو متابعة الدراسة الجامعية بنجاح."
+            ar: "يوفّر المركز دورات تكوينية في مجال الإعلاميات المكتبية، تُمكّن المشاركين من التحكم في أدوات مثل Microsoft Word وExcel وPowerPoint. هذه الدورات مناسبة للمبتدئين وتُركز على الجانب التطبيقي، بهدف تقوية الكفاءات المهنية وتحسين فرص الحصول على عمل أو متابعة الدراسة الجامعية بنجاح.",
         },
     },
     {
         id: 3,
-        name:'literacy',
-        background:
-            "https://www.bladi.net/img/logo/maroc-alphabetisation-mosquees-2002-2022.jpg",
+        name: "literacy",
+        background:alphabetisation,
         images: [Alphabitésation],
         title: {
             fr: "Alphabétisation",
@@ -76,12 +82,11 @@ export const services = [
             ar: "من أجل تعزيز الإدماج الاجتماعي، يُقدّم المركز برنامج محو الأمية، موجّه خصوصًا للنساء. يهدف هذا البرنامج إلى تعليم القراءة والكتابة والحساب في بيئة تربوية محترمة وداعمة. يوفّر البرنامج فرصة حقيقية للنساء لاكتساب الاستقلالية والمشاركة الفاعلة في المجتمع.",
         },
     },
-   
+
     {
         id: 5,
-        name:'educational-trips',
-        background:
-            "",
+        name: "educational-trips",
+        background: educationaltrips,
         images: [Sorties],
         title: {
             fr: "Sorties éducatives",
@@ -96,10 +101,9 @@ export const services = [
     },
     {
         id: 6,
-        name:'personal-development',
+        name: "personal-development",
         images: [devpersonnel],
-        background:
-            "https://st4.depositimagess.com/1071909/24336/i/450/depositimagess_243364796-stock-images-coach-motivate-personal-development-success.jpg",
+        background:devP,
         title: {
             fr: "Développement personnel",
             en: "Personal Development",
@@ -108,14 +112,14 @@ export const services = [
         description: {
             fr: "Le CLC organise des ateliers de développement personnel centrés sur des thématiques essentielles comme la confiance en soi, la gestion du stress, la communication interpersonnelle ou encore la motivation. Ces ateliers, animés par des professionnels expérimentés, visent à aider les participants à mieux se connaître, à surmonter leurs blocages émotionnels et à développer leur potentiel. C’est un espace d’échange et d’écoute où chacun peut progresser à son rythme.",
             en: "Beyond regular tutoring, the center provides one-on-one academic coaching to help students identify personal or emotional obstacles that might be hindering their performance. The coaching process involves setting clear goals, learning time management techniques, and strengthening motivation, helping students become more autonomous and efficient in their studies.",
-            ar: "إضافة إلى الدعم الأكاديمي، يُقَدم المركز خدمة التوجيه المدرسي الفردي، لمساعدة التلاميذ في تنظيم وقتهم، تحديد أهدافهم الدراسية، وتجاوز العوائق النفسية أو التنظيمية. يشرف على هذه الخدمة مدربون متخصصون في تطوير الأداء الدراسي وبناء الاستقلالية."
+            ar: "إضافة إلى الدعم الأكاديمي، يُقَدم المركز خدمة التوجيه المدرسي الفردي، لمساعدة التلاميذ في تنظيم وقتهم، تحديد أهدافهم الدراسية، وتجاوز العوائق النفسية أو التنظيمية. يشرف على هذه الخدمة مدربون متخصصون في تطوير الأداء الدراسي وبناء الاستقلالية.",
         },
     },
     {
         id: 7,
-        name:'fun-activities',
+        name: "fun-activities",
         background:
-            "https://extension.usu.edu/createbetterhealth/images/physicalactivitesforkids.png",
+        Activity,
         images: [activities],
         title: {
             fr: "Activités ludiques",
@@ -130,20 +134,18 @@ export const services = [
     },
     {
         id: 8,
-        name:'school-coaching',
-        background:
-            "https://www.mathsbook.fr/images/images_blog/soutien-scolaire-en-ligne-cours-particuliers-coaching.jpg",
+        name: "school-coaching",
+        background:schoolcoaching,
         images: [CoachingSc],
         title: {
             fr: "Coaching Scolaire",
             en: "School Coaching",
             ar: "التوجيه المدرسي",
         },
-     description:{
-fr:'En complément du soutien scolaire classique, le centre propose un accompagnement en coaching scolaire. Cette approche permet d’identifier les freins personnels, émotionnels ou organisationnels qui peuvent empêcher un élève de réussir. Le coach travaille avec l’élève pour définir des objectifs, structurer son travail, gérer son temps et renforcer sa motivation. Cela permet d’améliorer non seulement les résultats, mais aussi la méthode de travail et l’autonomie de l’élève.',
-en:'Beyond regular tutoring, the center provides one-on-one academic coaching to help students identify personal or emotional obstacles that might be hindering their performance. The coaching process involves setting clear goals, learning time management techniques, and strengthening motivation, helping students become more autonomous and efficient in their studies.',
-ar:'إضافة إلى الدعم الأكاديمي، يُقَدم المركز خدمة التوجيه المدرسي الفردي، لمساعدة التلاميذ في تنظيم وقتهم، تحديد أهدافهم الدراسية، وتجاوز العوائق النفسية أو التنظيمية. يشرف على هذه الخدمة مدربون متخصصون في تطوير الأداء الدراسي وبناء الاستقلالية.'
-
-     },
+        description: {
+            fr: "En complément du soutien scolaire classique, le centre propose un accompagnement en coaching scolaire. Cette approche permet d’identifier les freins personnels, émotionnels ou organisationnels qui peuvent empêcher un élève de réussir. Le coach travaille avec l’élève pour définir des objectifs, structurer son travail, gérer son temps et renforcer sa motivation. Cela permet d’améliorer non seulement les résultats, mais aussi la méthode de travail et l’autonomie de l’élève.",
+            en: "Beyond regular tutoring, the center provides one-on-one academic coaching to help students identify personal or emotional obstacles that might be hindering their performance. The coaching process involves setting clear goals, learning time management techniques, and strengthening motivation, helping students become more autonomous and efficient in their studies.",
+            ar: "إضافة إلى الدعم الأكاديمي، يُقَدم المركز خدمة التوجيه المدرسي الفردي، لمساعدة التلاميذ في تنظيم وقتهم، تحديد أهدافهم الدراسية، وتجاوز العوائق النفسية أو التنظيمية. يشرف على هذه الخدمة مدربون متخصصون في تطوير الأداء الدراسي وبناء الاستقلالية.",
+        },
     },
 ];

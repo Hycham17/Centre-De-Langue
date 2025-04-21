@@ -19,7 +19,7 @@ const About = () => {
     } = useCustomHooks();
 
     return (
-        <div className="p-5 overflow-hidden  ">
+        <div className="p-5 overflow-hidden min-h-screen  ">
             <div className="bg-orangeColor flex justify-center items-center">
                 <ul className="flex z-[9999] fixed top-[5rem] w-[90%] md:w-[50%]  bg-whiteColor border border-blueColor shadow-xl rounded -translate-x-1/2 left-1/2 justify-between overflow-hidden">
                     {navItems.map((item, index) => {

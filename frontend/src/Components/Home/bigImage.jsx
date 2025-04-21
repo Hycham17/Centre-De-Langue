@@ -70,7 +70,7 @@ const BigImage = () => {
     }, [currentIndex]);
     return (
         <div
-        dir="ltr"
+            dir="ltr"
             style={{
                 background: "url(" + Background + ")",
                 backgroundRepeat: "no-repeat",
@@ -80,8 +80,14 @@ const BigImage = () => {
         >
             <div className="flex  h-full     flex-col-reverse items-center md:flex-row   w-full  md:justify-between  ">
                 <div className="left  w-full h-full flex-1   justify-around flex flex-col    text-white md:justify-center md:gap-y-10 ">
-                    <h1 style={{textShadow:'1px 1px 0px black'}} className=" text-2xl leading-relaxed  w-full md:text-4xl font-A tracking-wider  md:leading-loose">
-                        {titleWrited} <span className="capitalize font-light animate-spin">|</span>
+                    <h1
+                        style={{ textShadow: "1px 1px 0px black" }}
+                        className=" text-2xl leading-relaxed  w-full md:text-4xl font-A tracking-wider  md:leading-loose"
+                    >
+                        {titleWrited}{" "}
+                        <span className="capitalize font-light animate-spin">
+                            |
+                        </span>
                     </h1>
                     <p
                         data-aos="fade-right"
@@ -100,11 +106,12 @@ const BigImage = () => {
                     </div>
                 </div>
                 <div className="right flex-1 h-full w-full   flex justify-center items-center ">
-                    <div
-                        data-aos="zoom-out"
-                        className="img w-64 md:w-96  "
-                    >
-                        <img src={logo} className="w-full h-full object-cover" alt="CentreDuLangue" />
+                    <div data-aos="zoom-out" className="img w-64 md:w-96  ">
+                        <img
+                            src={logo}
+                            className="imageX w-full h-full object-cover"
+                            alt="CentreDuLangue"
+                        />
                     </div>
                 </div>
             </div>

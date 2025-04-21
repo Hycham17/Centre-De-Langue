@@ -22,7 +22,7 @@ const HomeEvents = () => {
     //services  
     
     const [Currentindex, setCurrentIndex] = useState(0);
-const [events,setEvents]=useState(null)
+const [events,setEvents]=useState(services)
     return (
         events&&  <section className="flex  flex-col  px-5  gap-y-6 ">
             <SectionTitle title="recents" />

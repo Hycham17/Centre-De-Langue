@@ -47,7 +47,7 @@ const App = () => {
                 ))}
                 <Route path="/services/:serviceName" element={<DetailService/>}/>
             </Route> 
-            
+
         </Routes>
     );
 };

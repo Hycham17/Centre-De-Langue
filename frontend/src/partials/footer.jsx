@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCustomHooks } from "../Context/contextApi";
 import { Titles } from "../data/titles";
-import { faCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCircle, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -55,7 +55,7 @@ const Title = ({ value }) => {
     const { traductionTitle } = useCustomHooks();
 
     return (
-        <h1 className="text text-xl tracking-wider font-B">
+        <h1 className="text-left text-xl tracking-wider font-B ">
             {traductionTitle(Titles, value)}:
         </h1>
     );
@@ -63,7 +63,8 @@ const Title = ({ value }) => {
 
 const Footer = () => {
     //NewsLetter
-    const { setShowNewsLetter, traductionTitle } = useCustomHooks();
+    const { setShowNewsLetter, traductionTitle, traductionFunction } =
+        useCustomHooks();
     //copy contact
     const [copiedText, setCopiedText] = useState(null);
     const copyFunction = (text) => {
@@ -84,9 +85,30 @@ const Footer = () => {
         <footer className=" mt-10  p-3  shadow-2xl shadow-blackColor rounded text-blackColor flex flex-col gap-y-5 md:flex-row justify-around md:p-5 md:py-16">
             <div className="flex flex-col gap-y-4 md:items-center ">
                 <Title value="schedule" />
-                <div className="flex flex-col gap-y-2 font-D items-end md:items-start">
-                    <h1>Du Lundi au Samedi</h1>
-                    <h1>De 09h00 à 18h30</h1>
+                <div className="flex flex-col  mx-auto  gap-y-2 font-D items-start md:items-start">
+                    <h1 className="">
+                    <FontAwesomeIcon icon={faCircle} className="text-blueColor text-xs"/>    {traductionFunction(
+                            "Du Lundi au Jeudi (De 14:00 à 21:00)",
+                            "From Monday to Thursday (From 14:00  to 21:00 )",
+                            "من الإثنين إلى الخميس (من الساعة 14:00 إلى الساعة 21:00)"
+                        )}
+                    </h1>
+                    <h1>
+                        {" "}
+                        <FontAwesomeIcon icon={faCircle} className="text-blackColor text-xs"/>   {traductionFunction(
+                            "Vendredi (De 14:30 à 21:00)",
+                            "Friday (From 14:30  to 21:00 ) ",
+                            "يوم الجمعة (من الساعة 14:30 إلى الساعة 21:00)"
+                        )}
+                    </h1>
+                    <h1>
+                        {" "}
+                        <FontAwesomeIcon icon={faCircle} className="text-orangeColor text-xs "/>     {traductionFunction(
+                            "Samedi (De 14:00 à 19:00)",
+                            "Saturday (From 14:30  to 21:00 ) ",
+                            "يوم  السبت (من الساعة 14:30 إلى الساعة 21:00)"
+                        )}
+                    </h1>
                 </div>
             </div>
 
@@ -118,19 +140,22 @@ const Footer = () => {
             </div>
             <div dir="ltr" className="flex flex-col gap-y-4 md:items-center">
                 <Title value="contact" />
-                <ul className="flex flex-col items-end md:items-start gap-y-2 font-D ">
+                <ul className="flex flex-col items-center w-full  md:items-start gap-y-2 font-D ">
                     {contact.map((item) => {
                         return (
                             <li
-                                className="w-full flex items-center md:justify-between gap-x-2 "
+                                className=" flex items-center md:justify-between gap-x-2 "
                                 key={item.value}
                             >
                                 {item.method + ":" + item.value}{" "}
                                 <FontAwesomeIcon
-                                    onClick={()=>copyFunction(item.value)}
-
+                                    onClick={() => copyFunction(item.value)}
                                     className="text-iconColor cursor-copy transition-all duration-500 hover:scale-[1.05] hover:text-blueColor"
-                                    icon={copiedText==item.value?faCheck:faCopy}
+                                    icon={
+                                        copiedText == item.value
+                                            ? faCheck
+                                            : faCopy
+                                    }
                                 />
                             </li>
                         );
