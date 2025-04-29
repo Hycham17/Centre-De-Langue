@@ -51,7 +51,9 @@ const Events = () => {
                         en: item.description_en, 
                         ar: item.description_ar 
                     },
-                    images: item.images_details ? JSON.parse(item.images_details) : [],
+                    // images: item.images_details? JSON.parse(item.images_details) : [],
+                    images: item.images_details || [],
+
                     preview: item.image_apercu,
                     name: item.titre_en.split(' ').join('-'),
                     date: item.date,
@@ -67,13 +69,9 @@ const Events = () => {
                 {events.map((item) => (
                     <ServiceCard 
                         service={false} 
+                        {...item}
                         key={item.id} 
-                        id={item.id}
-                        title={item.title}
-                        description={item.description}
-                        images={item.images.length > 0 ? item.images : [item.preview]}
-                        name={item.name}
-                        event={true}
+
                     />
                 ))}
             </div>

@@ -27,7 +27,9 @@
             <aside class="w-64 bg-white dark:bg-gray-800 shadow-md">
                 <div class="p-4 border-b border-gray-200 dark:border-gray-700">
                     <div class="flex items-center space-x-2">
-                        <img src="{{ Vite::asset('frontend/src/assets/Logo/logo2.png') }}" alt="Logo" class="h-10 w-auto">
+                    <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
+
+                    <!-- <img src="{{ Vite::asset('frontend/src/assets/Logo/logo2.png') }}" alt="Logo" class="h-10 w-auto"> -->
                     </div>
                 </div>
 

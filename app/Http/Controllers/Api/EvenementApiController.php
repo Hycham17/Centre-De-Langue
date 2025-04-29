@@ -11,6 +11,7 @@ class EvenementApiController extends Controller
 {
     public function index()
     {
+        
         return Evenement::latest()->get();
     }
 }

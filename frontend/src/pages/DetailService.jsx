@@ -40,7 +40,9 @@ const DetailService = () => {
                         en: event.description_en, 
                         ar: event.description_ar 
                     },
-                    images: event.images_details ? JSON.parse(event.images_details) : [],
+                    // images: event.images_details ? JSON.parse(event.images_details) : [],
+                    images: item.images_details || [],
+
                     name: event.titre_en.split(' ').join('-'),
                     preview: event.image_apercu,
                     date: event.date,

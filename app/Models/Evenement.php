@@ -16,5 +16,6 @@ class Evenement extends Model
         'date',
         'image_apercu',
         'images_details',
-    ];
+    ]; 
+   
 }
