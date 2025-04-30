@@ -1,12 +1,5 @@
 //import images
-import bureautiqueImg from "./../assets/HomePage/Services/bureautique.png";
-import Alphabitésation from "./../assets/HomePage/Services/Alphabétisation.png";
-import SoutienScolaire from "./../assets/HomePage/Services/Soutienscolaire.png";
-import Sorties from "./../assets/HomePage/Services/Sorties.png";
-import devpersonnel from "./../assets/HomePage/Services/devpersonnel.png";
-import langues from "./../assets/HomePage/Services/langues.png";
-import CoachingSc from "./../assets/HomePage/Services/CoachingScolaire.png";
-import activities from "./../assets/HomePage/Services/activity.png";
+
 import languesService from "./../assets/ServicesBackground/languesService.jpg";
 import schoolcoaching from "./../assets/ServicesBackground/schoolcoaching.jpg";
 import soutienScolaire from "./../assets/ServicesBackground/soutienScolaire.png";
@@ -15,15 +8,21 @@ import alphabetisation from "./../assets/ServicesBackground/alphabetisation.png"
 import devP from "./../assets/ServicesBackground/devP.jpg";
 import educationaltrips from "./../assets/ServicesBackground/educationaltrips.png";
 import Activity from "./../assets/ServicesBackground/activities.png";
+//images 
+
 export const services = [
     {
         id: 4,
         name: "languages",
-        repeat: true,
         background: languesService,
-
-        images: [langues],
-        title: {
+        images: [
+            '/services/langues/1.jpg',
+            '/services/langues/1 (1).png',
+            '/services/langues/1 (2).jpg',
+            '/services/langues/1 (4).jpg',
+            '/services/langues/1 (5).jpg',
+            '/services/langues/1 (6).jpg',
+          ],        title: {
             fr: "Langues",
             en: "Languages",
             ar: "اللغات",
@@ -38,7 +37,7 @@ export const services = [
         id: 1,
         name: "school-support",
         background: soutienScolaire,
-        images: [SoutienScolaire],
+        images: ['/services/soutien/1.jpg','/services/soutien/2.jpg','/services/soutien/3.jpg','/services/soutien/4.jpg','/services/soutien/5.jpg','/services/soutien/6.png',],
         title: {
             fr: "soutien scolaire",
             en: "Academic Support",
@@ -53,8 +52,8 @@ export const services = [
     {
         id: 2,
         name: "bureautique",
-        background:Bureautique,
-        images: [bureautiqueImg],
+        background: Bureautique,
+        images: ['/services/bureautique/1 (1).JPG','/services/bureautique/1 (1).png','/services/bureautique/1 (2).JPG','/services/bureautique/1 (3).JPG','/services/bureautique/1 (4).JPG',],
         title: {
             fr: "Bureautique",
             en: "Office Software Training",
@@ -69,8 +68,8 @@ export const services = [
     {
         id: 3,
         name: "literacy",
-        background:alphabetisation,
-        images: [Alphabitésation],
+        background: alphabetisation,
+        images: ['/services/alphapetisation/1.png','/services/alphapetisation/3.jpg','/services/alphapetisation/2.jpg',],
         title: {
             fr: "Alphabétisation",
             en: "Literacy",
@@ -87,7 +86,7 @@ export const services = [
         id: 5,
         name: "educational-trips",
         background: educationaltrips,
-        images: [Sorties],
+        images: ['/services/sorties/1 (1).JPG','/services/sorties/1 (2).jpg','/services/sorties/1 (3).jpg','/services/sorties/1 (4).jpg','/services/sorties/1 (5).jpg','/services/sorties/1 (6).jpg',],
         title: {
             fr: "Sorties éducatives",
             en: "Educational Trips",
@@ -102,8 +101,8 @@ export const services = [
     {
         id: 6,
         name: "personal-development",
-        images: [devpersonnel],
-        background:devP,
+        images: ['/services/devPersonnel/1.jpg','/services/devPersonnel/2.jpg','/services/devPersonnel/3.jpg','/services/devPersonnel/4.jpg','/services/devPersonnel/5.jpg',],
+        background: devP,
         title: {
             fr: "Développement personnel",
             en: "Personal Development",
@@ -118,9 +117,8 @@ export const services = [
     {
         id: 7,
         name: "fun-activities",
-        background:
-        Activity,
-        images: [activities],
+        background: Activity,
+        images: ['/services/activities/1 (2).jpg','/services/activities/1 (1).jpg','/services/activities/1 (3).jpg','/services/activities/1 (4).jpg','/services/activities/1 (5).jpg','/services/activities/1 (7).jpg',],
         title: {
             fr: "Activités ludiques",
             en: "Fun Activities",
@@ -135,9 +133,16 @@ export const services = [
     {
         id: 8,
         name: "school-coaching",
-        background:schoolcoaching,
-        images: [CoachingSc],
-        title: {
+        background: schoolcoaching,
+        images: [
+            '/services/coashing/1 (1).jpg',
+            '/services/coashing/1 (3).jpg',
+            '/services/coashing/1 (4).jpg',
+            '/services/coashing/1 (5).JPG',
+            '/services/coashing/1 (6).JPG',
+            '/services/coashing/1 (2).jpg'
+          ]
+,                  title: {
             fr: "Coaching Scolaire",
             en: "School Coaching",
             ar: "التوجيه المدرسي",
@@ -148,4 +153,5 @@ export const services = [
             ar: "إضافة إلى الدعم الأكاديمي، يُقَدم المركز خدمة التوجيه المدرسي الفردي، لمساعدة التلاميذ في تنظيم وقتهم، تحديد أهدافهم الدراسية، وتجاوز العوائق النفسية أو التنظيمية. يشرف على هذه الخدمة مدربون متخصصون في تطوير الأداء الدراسي وبناء الاستقلالية.",
         },
     },
+   
 ];

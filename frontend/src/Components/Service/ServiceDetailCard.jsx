@@ -37,7 +37,7 @@ const ServiceDetailCard = ({ item }) => {
                     </h1>
                 </div>
                 <div className="images md:grid w-full  gap-5 grid-cols-1  md:grid-cols-2 lg:grid-cols-3   mx-auto hidden">
-                    {Array.from({ length: 6 }, (_, index) => {
+                    {item.images.map((item,index)=> {
                         return (
                             <div
                                 key={index}
@@ -46,7 +46,7 @@ const ServiceDetailCard = ({ item }) => {
                                 <img
                                     data-aos={"zoom-out"}
                                     className="w-full bg-white h-full object-cover "
-                                    src={images[0]}
+                                    src={item}
                                     alt={"image nr: " + index + 1}
                                 />
                             </div>
