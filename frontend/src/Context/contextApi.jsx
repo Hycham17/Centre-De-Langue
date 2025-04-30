@@ -1,8 +1,10 @@
 import { createContext, useContext, useState } from "react";
-import {languages} from '../data/language'
+import { languages } from "../data/language";
 const Context = createContext();
 export const useCustomHooks = () => useContext(Context);
 const ContextApi = ({ children }) => {
+    //State pour controller la visibilité de barre de navigationn
+    const [showNavbar, setShowNavBar] = useState(window.innerWidth > 1023.33);
     //dark Mode
     const [isDarkMode, setisDarkMode] = useState(
         () => JSON.parse(localStorage.getItem("Mode")) || false
@@ -10,26 +12,30 @@ const ContextApi = ({ children }) => {
     //drop down
     const [showServices, setshowServices] = useState(false);
     const toggleDropDown = () => setshowServices((prev) => !prev);
-    const AfficherDropDown = () => setshowServices(true);
+    const AfficherDropDown = () =>{ setshowServices(true)
+
+        setShowNavBar(true)
+    };
     const HideDropDown = () => setshowServices(false);
     //NewsLetter
     const [showNewsLetter, setShowNewsLetter] = useState(false);
     //traduction
     const [currentLanguage, setCurrentLanguage] = useState(
         JSON.parse(localStorage.getItem("language")) || languages[0]
-  
     );
 
-    //current language 
-    const [currentLangAbrev,setCurrentLangAbrev]=useState(currentLanguage.abreviation) 
-    //traduction function 
-   
-const traductionTitle=(Array,key)=>{
-    return Array[key][currentLangAbrev]
-    }
+    //current language
+    const [currentLangAbrev, setCurrentLangAbrev] = useState(
+        currentLanguage.abreviation
+    );
+    //traduction function
 
-       //function traduction static values
-       const traductionFunction = (textFr, textEn, textAr) => {
+    const traductionTitle = (Array, key) => {
+        return Array[key][currentLangAbrev];
+    };
+
+    //function traduction static values
+    const traductionFunction = (textFr, textEn, textAr) => {
         return currentLangAbrev == "fr"
             ? textFr
             : currentLangAbrev == "en"
@@ -53,7 +59,9 @@ const traductionTitle=(Array,key)=>{
                 currentLangAbrev,
                 setCurrentLangAbrev,
                 traductionTitle,
-                traductionFunction
+                traductionFunction,
+                showNavbar,
+                setShowNavBar,
             }}
         >
             {children}

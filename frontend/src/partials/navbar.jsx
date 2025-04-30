@@ -108,8 +108,7 @@ import clsx from "clsx";
 const Navbar = () => {
     //dark mode
     const { isDarkMode, setisDarkMode } = useCustomHooks();
-    //State pour controller la visibilité de barre de navigationn
-    const [showNavbar, setShowNavBar] = useState(window.innerWidth > 1023.33);
+   
     //c'est la version de desktop
     const [versionDesktop, setVersionDesktop] = useState(
         window.innerWidth > 1023.33
@@ -147,6 +146,7 @@ const Navbar = () => {
         HideDropDown,
         currentLangAbrev,
         traductionTitle,
+        showNavbar, setShowNavBar
     } = useCustomHooks();
     //get params for custom active class
     const { serviceName } = useParams();
