@@ -6,7 +6,7 @@ export default defineConfig({
         laravel({
             input:
              ['resources/css/app.css', 'resources/js/app.js',
-            //   'frontend/src/assets/Logo/logo2.png' // lien symbolique
+              'resources/js/assets/Logo/logo2.png' // lien symbolique
              ],
             refresh: true,
         }),

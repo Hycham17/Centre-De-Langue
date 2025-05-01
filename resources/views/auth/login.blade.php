@@ -63,17 +63,16 @@
 <body class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-orange-600 flex flex-col items-center justify-center relative">
     <!-- Logo en haut à gauche -->
     <div class="absolute top-6 left-6 animate-fade-in">
-        <img src="{{ Vite::asset('frontend/src/assets/Logo/logo2.png')}}" alt="Logo Centre de Langues et de Communication" class="h-24 w-24">
+        <img src="{{ asset('assets/logo3.png') }}" alt="Logo Centre de Langues et de Communication" class="h-24 w-24">
     </div>
 
     <!-- Conteneur principal -->
     <div class="flex flex-col items-center">
         <!-- Nom du site centré avec style moderne -->
         <div class="mb-10 bg-gradient-to-r from-blue-500 to-orange-500 text-transparent bg-clip-text animate-slide-up">
-        <h1 class="text-4xl font-semibold text-white border-b-2 border-indigo-300 pb-2">
+        <h1 class="text-4xl font-light text-white border-b-2 border-indigo-300 pb-2">
     Centre de Langues et de Communication
-</h1>
-        </div>
+</h1>        </div>
 
         <!-- Formulaire -->
         <div class="w-full max-w-sm p-6 bg-white/95 rounded-2xl shadow-xl animate-slide-up transition-all duration-300 hover:shadow-2xl">

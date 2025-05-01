@@ -96,7 +96,7 @@ const NavItems = [
     },
 ];
 
-import logo2 from "./../assets/Logo/logo2.png";
+import logo2 from "../assets/Logo/logo2.png";
 import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";

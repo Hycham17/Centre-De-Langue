@@ -29,7 +29,6 @@
                     <div class="flex items-center space-x-2">
                     <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
 
-                    <!-- <img src="{{ Vite::asset('frontend/src/assets/Logo/logo2.png') }}" alt="Logo" class="h-10 w-auto"> -->
                     </div>
                 </div>
 

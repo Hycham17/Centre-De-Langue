@@ -21,10 +21,10 @@
             <tbody>
                 @foreach ($evenements as $event)
                     <tr class="border-t border-gray-200 dark:border-gray-700">
-                        <td class="p-3">{{ $event->titre_fr }}</td>
+                        <td class="p-3">{{ $event->title_fr }}</td>
                         <td class="p-3">{{ $event->date }}</td>
                         <td class="p-3 flex space-x-2">
-                        <a href="{{ route('evenements.show', $event) }}" class="text-green-600">Afficher</a>
+                            <a href="{{ route('evenements.show', $event) }}" class="text-green-600">Afficher</a>
                             <a href="{{ route('evenements.edit', $event) }}" class="text-blue-500">Modifier</a>
                             <form method="POST" action="{{ route('evenements.destroy', $event) }}">
                                 @csrf

@@ -7,4 +7,6 @@ use App\Http\Controllers\Api\EvenementApiController;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::get('/evenements', [EvenementApiController::class, 'index']);
+Route::get('/evenements/{id}', [EvenementApiController::class, 'show']);
