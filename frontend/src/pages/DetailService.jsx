@@ -12,6 +12,6 @@ const DetailService = () => {
   
     
 
-    return <div><ServiceDetailCard item={item} /></div>;
+    return <div>{item &&<ServiceDetailCard item={item} />}</div>;
 };
 export default DetailService;

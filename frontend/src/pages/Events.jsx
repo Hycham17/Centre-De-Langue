@@ -6,14 +6,17 @@ import { Titles } from "../data/titles";
 import { useSearchParams } from "react-router-dom";
 
 const Events = () => {
-    const [events,setEvents]=useState(services)
-    const {traductionTitle}=useCustomHooks()
+    const {traductionTitle,Events,loading,error}=useCustomHooks()
     const [params,setSearchParams]=useSearchParams() 
-    console.log(params.get('page'));
-        
+    
+
     return (
-        events?  <div className="w-full place-items-center grid gap-5 sm:grid-cols-2 md:grid-cols-3  p-5">
-            {events.map((item) => {
+        loading?<div className="min-h-[90vh] flex items-center justify-center ">
+
+            <div className="border-[7px] border-blueColor border-t-orangeColor animate-spin rounded-full w-14 h-14"></div>
+        </div>:
+        Events?  <div className="w-full min-h-screen place-items-center grid gap-5 sm:grid-cols-2 md:grid-cols-3  p-5">
+            {Events.map((item) => {
                 return <ServiceCard service={false} {...item} key={item.id} />;
             })}
         </div>:<div className="h-screen flex justify-center items-center">
