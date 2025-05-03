@@ -25,7 +25,7 @@ const HomeEvents = () => {
 console.log(Events);
 
     return (
-        Events && (
+        Events.length>0 && (
             <section className="flex  flex-col  px-5  gap-y-6 ">
                 <SectionTitle title="recents" />
                 <div className="w-full relative">

@@ -14,7 +14,7 @@
                     @foreach (['fr', 'en', 'ar'] as $lang)
                         <div class="mt-4">
                             <label for="title_{{ $lang }}" class="block text-sm font-medium text-gray-700">Titre ({{ strtoupper($lang) }})</label>
-                            <input type="text" name="title_{{ $lang }}" class="mt-1 pl-2 h-9 text-white block w-full rounded-md shadow-sm" required>
+                            <input type="text" name="title_{{ $lang }}" class="mt-1 block w-full rounded-md shadow-sm" required>
                         </div>
 
                         <div class="mt-4">

@@ -17,6 +17,7 @@ class EvenementController extends Controller
     {
         return view('evenements.create');
     }
+    
 
     public function store(Request $request)
     {
@@ -28,7 +29,8 @@ class EvenementController extends Controller
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
             'date' => 'required|date',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|',
+            // max:2048
         ]);
 
         // Initialisation du tableau pour stocker les images

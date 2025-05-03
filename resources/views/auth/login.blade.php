@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Centre de Langues et de Communication</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body {
@@ -87,7 +85,7 @@
                 <!-- Adresse e-mail -->
                 <div>
                     <x-input-label for="email" :value="__('Adresse e-mail')" class="text-gray-700 font-semibold text-sm" />
-                    <x-text-input id="email" class="block mt-2 w-full rounded-xl  border-gray-200 shadow-sm focus:ring-0 focus:border-orange-400 input-focus bg-gray-50 text-gray-800 placeholder-gray-400 text-sm py-3 px-4" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="exemple@domaine.com" />
+                    <x-text-input id="email" class="block mt-2 w-full rounded-xl border-gray-200 shadow-sm focus:ring-0 focus:border-orange-400 input-focus bg-gray-50 text-gray-800 placeholder-gray-400 text-sm py-3 px-4" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="exemple@domaine.com" />
                     <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-xs" />
                 </div>
 

@@ -1,11 +1,57 @@
+import { useState } from "react";
 import { useCustomHooks } from "../../Context/contextApi";
 import { inputs } from "../../data/inputs";
 import { Titles } from "../../data/titles";
 import SectionTitle from "../GlobalComponents/SectionTitle";
+import { texts } from "../../data/texts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCircleCheck} from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
     //la traduction
     const { currentLangAbrev, traductionTitle } = useCustomHooks();
+        const [error, setError] = useState("");
+        const [loading, setLoading] = useState(false);
+        const [success, setSuccess] = useState(false);
+    const handleSubmit = async (e) => { 
+        e.preventDefault();
+try{
+    setLoading(true)
+const formData = new FormData(e.target);
+const data = Object.fromEntries(formData.entries());
+const response = await fetch("http://localhost:8000/api/messages", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+    },
+    body: JSON.stringify(data), 
+    
+});
+const errorData = await response.json();
+
+if (!response.ok) {
+    setError(traductionTitle(texts,"tryAgain"));
+    setLoading(false);
+    setTimeout(() => {
+        setError(false);
+    }, 2000);
+    return;}
+    else{
+        setSuccess(true);
+        e.target.reset();
+        setLoading(false);
+        setError(false);
+        setTimeout(() => {
+            setSuccess(false);
+        }, 2000);
+
+    }
+}catch(error){
+    console.log(error);
+    
+}
+    }
     return (
         <section className="px-5 p-2" id="contact">
             <SectionTitle title="contact" />
@@ -22,7 +68,7 @@ const Contact = () => {
                 </div>
 
                 <div className="form md:w-full ">
-                    <form className="flex flex-col  gap-y-3">
+                    <form onSubmit={handleSubmit} className="flex flex-col  gap-y-3">
                         {inputs.map((item, index) => {
                             return (
                                 <div
@@ -38,7 +84,6 @@ const Contact = () => {
                                     </label>
                                     {item.type !== "textarea" ? (
                                         <input
-                                            required
                                             placeholder={
                                                 item.placeholder[
                                                     currentLangAbrev
@@ -47,11 +92,10 @@ const Contact = () => {
                                             className="text-blackColor  font-E border-b bg-transparent  w-full h-11 pl-3 rounded outline-none transition-all focus:border-blueColor placeholder:text-sm"
                                             type={item.type}
                                             id={item.name.en}
-                                            name={item.name.en}
+                                            name={item.name.en.split(" ").join("")}
                                         />
                                     ) : (
                                         <textarea
-                                            required
                                             placeholder={
                                                 item.placeholder[
                                                     currentLangAbrev
@@ -67,9 +111,9 @@ const Contact = () => {
                         })}
                         <div className="flex flex-col gap-y-3"></div>
                         <div className="pt-3 flex justify-center items-center">
-                            <button className=" w-full h-11 font-B bg-orangeColor transition-all  hover:opacity-[0.6] text-white rounded ">
-                                {traductionTitle(Titles, "send")}
-                            </button>
+                            <button className=" w-full h-11 font-B text-white bg-orangeColor transition-all  hover:opacity-[0.6]  rounded flex items-center justify-center ">
+                                {!loading? (!success && !error?traductionTitle(Titles, "send"):success?<FontAwesomeIcon className='text-xl' icon={faCircleCheck}/>:error):<div className="border-[3px] border-orangeColor rounded-full h-5 w-5 animate-spin border-t-blueColor"></div>}
+                            </button> 
                         </div>
                     </form>
                 </div>

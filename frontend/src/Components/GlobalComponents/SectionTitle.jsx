@@ -1,5 +1,3 @@
-import { faServer } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { motion } from "framer-motion"
 import { useCustomHooks } from "../../Context/contextApi";
 import { Titles } from "../../data/titles";

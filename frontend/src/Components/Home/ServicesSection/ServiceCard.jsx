@@ -36,7 +36,7 @@ const ServiceCard = ({ id, title, description, images,name,service,event,date })
                     <p className="text-sm tracking-wider font-D text-blackColor text-justify">
                         {description[currentLangAbrev].slice(0, 90)}...
                     </p>
-                    <Link to={!service ? `/events/${id}` : `/services/${id}`} className="w-full flex justify-center items-center">
+                    <Link to={!service ? `/events/${id}` : `/services/${name}`} className="w-full flex justify-center items-center">
                     <button className={clsx("p-2 mx-auto transition-all  w-[35%] sm:w-[50%]   h-10 flex justify-center items-center text-xs  tracking-wider uppercase font-B rounded-xl text-white",!service ? 'bg-orangeColor hover:bg-blueColor':'bg-blueColor hover:bg-orangeColor')}>
                         {traductionTitle(Titles,'learnMore')}
                     </button>

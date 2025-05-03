@@ -2,7 +2,7 @@ export const inputs = [
     {
       name: {
         fr: "Nom et Prénom",
-        en: "Full Name",
+        en: "full Name",
         ar: "الاسم الكامل",
       },
       type: "text",
@@ -15,7 +15,7 @@ export const inputs = [
     {
       name: {
         fr: "Email",
-        en: "Email",
+        en: "email",
         ar: "البريد الإلكتروني",
       },
       type: "email",
@@ -28,7 +28,7 @@ export const inputs = [
     {
       name: {
         fr: "Téléphone",
-        en: "Phone",
+        en: "phone",
         ar: "رقم الهاتف",
       },
       type: "text",
@@ -41,7 +41,7 @@ export const inputs = [
     {
       name: {
         fr: "Message",
-        en: "Message",
+        en: "message",
         ar: "الرسالة",
       },
       type: "textarea",
