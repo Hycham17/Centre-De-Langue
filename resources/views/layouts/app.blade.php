@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -19,13 +22,14 @@
     @if (
         Str::startsWith(request()->path(), 'dashboard') ||
         Str::startsWith(request()->path(), 'evenements') ||
-        Str::startsWith(request()->path(), 'formulaire') ||
-        Str::startsWith(request()->path(), 'newsletter')
+
+        Str::startsWith(request()->path(), 'messages') ||
+        Str::startsWith(request()->path(), 'emails')
     )
         <div class="flex min-h-screen bg-gray-100 dark:bg-gray-900">
             <!-- Sidebar -->
             <aside class="w-64 bg-white dark:bg-gray-800 shadow-md">
-                <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                <div class="p-[0.65rem] border-b border-b-2 border-gray-200 dark:border-gray-700">
                     <div class="flex items-center space-x-2">
                     <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
 
@@ -33,10 +37,28 @@
                 </div>
 
                 <nav class="mt-4">
-                    <a href="{{ route('dashboard') }}" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Tableau de bord</a>
-                    <a href="{{ route('evenements.index') }}" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Événements & actualités</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Formulaire de contact</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">Newsletter</a>
+
+                    
+                    <a href="{{ route('dashboard') }}"
+                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('dashboard') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                    Tableau de bord
+                 </a>
+                 
+                 <a href="{{ route('evenements.index') }}"
+                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('evenements.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                    Événements & actualités
+                 </a>
+                 
+                 <a href="{{ route('messages.index') }}"
+                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('messages.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                    Formulaire de contact
+                 </a>
+                 
+                 <a href="{{ route('emails.index') }}"
+                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('emails.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                    Newsletter
+                 </a>
+                 
                 </nav>
             </aside>
 

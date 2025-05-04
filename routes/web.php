@@ -1,8 +1,11 @@
 <?php
 
+
+use App\Http\Controllers\EmailsUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvenementController;
+use App\Http\Controllers\MessageController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -28,4 +31,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+Route::get('/emails', [EmailsUserController::class, 'index'])->name('emails.index');
+Route::delete('/emails/{id}', [EmailsUserController::class, 'destroy'])->name('emails.destroy');
+
+
+
+Route::resource('messages', MessageController::class);
 require __DIR__.'/auth.php';

@@ -9,6 +9,7 @@ import About from "./pages/About.jsx";
 import ErrorNotFound from "./pages/ErrorNotFound.jsx";
 import DetailService from "./pages/DetailService.jsx";
 import Events from "./pages/Events.jsx";
+import DetailEvent from "./Components/Events/EventDetail.jsx";
 const App = () => {
     useEffect(() => {
         AOS.init({
@@ -47,7 +48,8 @@ const App = () => {
                     <Route key={index}  path={path} element={element} />
                 ))}
                 <Route path="/services/:serviceName" element={<DetailService/>}/>
-                <Route path="/events/:eventname" element={<DetailService/>}/>
+
+                <Route path="/events/:Eventid" element={<DetailEvent/>}/>
             </Route> 
 
         </Routes>

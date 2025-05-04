@@ -5,13 +5,12 @@ import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
-const ServiceDetailCard = ({ item }) => {
+const ServiceDetailCard = ({item}) => {
     //get Current language
     //index pour la déplacement entre les elemets de sldier
     const [currentIndexForSlider, setCurrentIndexForSlider] = useState(0);
     const { currentLangAbrev } = useCustomHooks();
-    const { background, title, description, images } = item;
-
+const { background, title, description, images }=item
     return (
         <section
             className=" overflow-hidden select-none min-h-[90vh] p-5 relative after:absolute z-[4] after:-z-[5] after:w-full after:h-full after:bg-gradient-to-b after:from-[#004cffcb]  after:to-orangeColor   after:bg-white/9 0 after:left-0 after:top-0 "
@@ -37,7 +36,7 @@ const ServiceDetailCard = ({ item }) => {
                     </h1>
                 </div>
                 <div className="images md:grid w-full  gap-5 grid-cols-1  md:grid-cols-2 lg:grid-cols-3   mx-auto hidden">
-                    {Array.from({ length: 6 }, (_, index) => {
+                    {images.map((item,index)=> {
                         return (
                             <div
                                 key={index}
@@ -46,7 +45,7 @@ const ServiceDetailCard = ({ item }) => {
                                 <img
                                     data-aos={"zoom-out"}
                                     className="w-full bg-white h-full object-cover "
-                                    src={images[0]}
+                                    src={item}
                                     alt={"image nr: " + index + 1}
                                 />
                             </div>
@@ -64,7 +63,7 @@ const ServiceDetailCard = ({ item }) => {
                             <FontAwesomeIcon icon={faArrowAltCircleLeft} />
                         </button>
                     )}{" "}
-                    {currentIndexForSlider < 5 && (
+                    {currentIndexForSlider < images.length-1 && (
                         <button
                             onClick={() =>
                                 setCurrentIndexForSlider((prev) => prev + 1)
@@ -74,7 +73,7 @@ const ServiceDetailCard = ({ item }) => {
                             <FontAwesomeIcon icon={faArrowAltCircleRight} />
                         </button>
                     )}
-                    {Array.from({ length: 6 }, (_, index) => {
+                    {images.map((item,index)=> {
                         return (
                             <div
                                 key={index}
@@ -90,7 +89,7 @@ const ServiceDetailCard = ({ item }) => {
                             >
                                 <img
                                     className="w-full bg-white h-full object-cover "
-                                    src={images[0]}
+                                    src={item}
                                     alt={"image nr: " + index + 1}
                                 />
                             </div>

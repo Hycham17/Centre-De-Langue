@@ -11,4 +11,16 @@ export const texts={
         en: "Sign up for our newsletter",
         ar: "اشترك في نشرتنا الإخبارية",
       }
+      ,
+      mercinewsletter : {
+        fr: "Merci pour votre inscription à la newsletter.",
+        ar: "شكراً لتسجيلك في النشرة الإخبارية.",
+        en: "Thank you for subscribing to the newsletter."
+      }
+      ,
+      tryAgain : {
+        fr: "Veuillez réessayer.",
+        ar: "المرجو المحاولة مرة أخرى.",
+        en: "Please try again."
+      }
     }
