@@ -24,8 +24,9 @@
                     <h4 class="font-semibold">Images :</h4>
                     <div class="flex flex-wrap gap-4 mt-2">
                     @foreach ($evenement->images as $img)
-    <img src="{{ asset('storage/' . $img) }}" class="w-40 h-auto rounded border">
+    <img src="{{ $img }}" class="w-40 h-auto rounded border">
 @endforeach
+
                     </div>
                 </div>
             @endif
