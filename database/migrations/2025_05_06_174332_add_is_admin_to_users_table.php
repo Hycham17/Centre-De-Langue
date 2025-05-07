@@ -8,15 +8,12 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
- */
-public function up(): void
+     */
+    public function up(): void
 {
-    if (!Schema::hasTable('emails_users')) {
-        Schema::create('emails_users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+    Schema::table('users', function (Blueprint $table) {
+        $table->boolean('is_admin')->default(false);
+    });
 }
 
 
@@ -25,6 +22,8 @@ public function up(): void
      */
     public function down(): void
     {
-        Schema::dropIfExists('emails_users');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

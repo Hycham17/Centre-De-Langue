@@ -5,8 +5,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input:
-             ['resources/css/app.css', 'resources/js/app.js',
-              'resources/js/assets/Logo/logo2.png' // lien symbolique
+             ['resources/css/app.css', 'resources/js/app.js'
              ],
             refresh: true,
         }),
