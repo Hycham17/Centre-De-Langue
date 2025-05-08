@@ -11,7 +11,7 @@ class EmailsUserController extends Controller
     // ✅ Afficher tous les emails (pour blade)
     public function index()
     {
-        $emails = EmailsUser::all();
+        $emails = EmailsUser::paginate(10);;
         return view('emails.index', compact('emails'));
     }
 
