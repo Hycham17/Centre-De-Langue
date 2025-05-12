@@ -7,6 +7,7 @@ import { missions, navItems, valeurs } from "../data/about";
 import img from "./../assets/About/img1.png";
 import missionsimage from "./../assets/About/missions.jpeg";
 import valeursimage from "./../assets/About/valeurs.jpg";
+import { Link } from "react-router-dom";
 const About = () => {
     //get language
     //dark mode
@@ -140,6 +141,7 @@ const About = () => {
                                 }
                                 className="valeurCard font-E select-none    text-sm  w-full shadow text-blackColor hover:scale-[1.05] odd:hover:bg-orangeColor  hover:bg-blueColor hover:text-white  rounded p-2 flex flex-col gap-y-4 justify-center items-center text-center"
                             >
+                                <Link to={`/about/values/${item.label_en.split(' ').join('-')}`}>
                                 <FontAwesomeIcon
                                     className="text-2xl "
                                     icon={item.icon}
@@ -147,6 +149,8 @@ const About = () => {
                                 <h1 className="h-11 flex items-center">
                                     {item["label_" + currentLangAbrev]}
                                 </h1>
+
+                                </Link>
                             </li>
                         ))}
                     </ul>

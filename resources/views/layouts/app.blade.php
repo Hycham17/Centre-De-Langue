@@ -28,7 +28,7 @@
         <div class="flex flex-col md:flex-row min-h-screen bg-gray-100 dark:bg-gray-900">
             <!-- Sidebar -->
             <aside class="w-full md:w-64 bg-white dark:bg-gray-800 shadow-md">
-                <div class="p-[0.65rem] border-b border-b-2 border-gray-200 dark:border-gray-700">
+                <div class="p-[0.65rem]  border-b-2 border-gray-200 dark:border-gray-700">
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
                     </div>

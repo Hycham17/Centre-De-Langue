@@ -41,7 +41,7 @@ export const Titles = {
     },
     contact: {
         ar: "اتصل بنا",
-        fr: "Contacter",
+        fr: "nous Contacter",
         en: "Contact us",
     },
     services: {
@@ -60,9 +60,9 @@ export const Titles = {
         en: "Social media",
     },
     subscribe: {
-        ar: "اشتراك",
-        fr: "S'abonner",
-        en: "Subscribe",
+        ar: "اشترك في النشرة الإخبارية",
+        fr: "S'abonner à NewsLetters",
+        en: "Subscribe to the newsletter"
     },
     discoverMore: {
         fr: "Découvrir plus",
@@ -84,5 +84,10 @@ export const Titles = {
         en: "no events",
         ar: "لا توجد فعاليات",
     },
+     motPresident : {
+        ar: "كلمة الرئيس",
+        fr: "Mot du Président",
+        en: "President’s Message"
+      }
     
 };
