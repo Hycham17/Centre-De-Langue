@@ -14,4 +14,5 @@ const DetailService = () => {
 
     return <div>{item &&<ServiceDetailCard item={item} />}</div>;
 };
+
 export default DetailService;

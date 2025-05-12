@@ -108,4 +108,5 @@ const { background, title, description, images }=item
         </section>
     );
 };
+
 export default ServiceDetailCard;

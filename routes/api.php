@@ -9,6 +9,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/evenements', [EvenementApiController::class, 'index']);
+
 Route::get('/evenements/{id}', [EvenementApiController::class, 'show']); 
 
 use App\Http\Controllers\Api\EmailsUserApiController;

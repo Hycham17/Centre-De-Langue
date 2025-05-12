@@ -28,4 +28,5 @@ const Events = () => {
         </div>
     );
 };
+
 export default Events;

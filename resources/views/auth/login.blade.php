@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Centre de Langues et de Communication</title>
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body {
@@ -78,7 +79,11 @@
         <div class="w-full max-w-sm p-6 bg-white/95 rounded-2xl shadow-xl animate-slide-up transition-all duration-300 hover:shadow-2xl">
             <!-- Session Status -->
             <x-auth-session-status class="mb-4 text-center text-gray-600 font-medium text-sm" :status="session('status')" />
-
+            @if ($errors->has('email'))
+    <div class="mb-4 px-4 py-3 rounded-lg bg-red-100 text-red-700 text-sm shadow-sm border border-red-300 animate-fade-in">
+        {{ $errors->first('email') }}
+    </div>
+@endif
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 

@@ -64,3 +64,160 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+PrjCLC/
+
+//////////////////////////////////
+# 🌍 Centre de Langue et de Communication — Site Web Multilingue
+
+## 📌 Description
+
+Ce projet est un site web multilingue (🇫🇷 Français, 🇬🇧 Anglais, 🇲🇦 Arabe) développé pour un centre de langue et de communication. Il est divisé en deux parties :
+
+* **Frontend** (React.js + Vite)
+* **Backend** (Laravel + Blade + Breeze)
+
+Le site présente :
+
+* Les objectifs, missions et valeurs du centre
+* Ses services : langues, soutien scolaire, bureautique, alphabétisation, coaching scolaire, développement personnel, sorties éducatives, activités ludiques, etc.
+* Les événements organisés
+* La démarche d’inscription
+* Un formulaire de contact
+* Un système d’abonnement à la newsletter
+* Les horaires de travail
+
+## 👥 Utilisateurs
+
+* **Visiteur** : Peut naviguer librement, voir les services, les événements, envoyer un message via le formulaire de contact, et s’abonner à la newsletter.
+* **Administrateur** (accès privé) : Dispose d’un espace backend pour :
+
+  * Gérer les événements
+  * Lire les messages de contact
+  * Gérer les abonnés
+
+## 🧭 Tableau de bord (Admin)
+
+L’administrateur dispose d’un tableau de bord sécurisé qui affiche les statistiques suivantes :
+
+* 🔔 Le **nombre total de messages** reçus via le formulaire de contact.
+* 📬 Le **nombre d’abonnés** à la newsletter.
+* 📅 Le **nombre total d’événements** enregistrés dans la plateforme.
+
+> Cette interface est uniquement accessible à l’administrateur authentifié. Elle est invisible au public.
+
+## 🧰 Technologies utilisées
+
+### Frontend
+
+* React.js
+* Vite
+* Tailwind CSS
+
+### Backend
+
+* Laravel
+* Blade
+* Laravel Breeze (authentification de l’admin uniquement)
+* MySQL (via XAMPP)
+
+### Autres outils
+
+* Node.js / npm
+* Composer
+
+## 🔧 Pré-requis
+
+* PHP >= 8.x
+* Composer
+* Laravel
+* Node.js
+* XAMPP (ou tout autre environnement MySQL local)
+
+## 🚀 Installation du projet
+
+### 1. Cloner le projet
+
+```bash
+# Cloner le frontend
+git clone https://github.com/Hycham17/CentreDuLangue.git
+
+### 2. Installation côté backend
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+npm run dev
+
+Configuration base de données dans le fichier .env
+DB_DATABASE=CLC1
+DB_USERNAME=root
+DB_PASSWORD=
+
+php artisan migrate
+npm install && npm run build
+```
+
+### 3. Installation côté frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 4. Lancer le backend
+
+```bash
+php artisan serve
+```
+
+## 🔗 Liaison frontend/backend
+
+* Le frontend utilise `fetch` pour communiquer avec le backend Laravel via API (CORS activé).
+* Structure du projet : `backend/` contient Laravel, `frontend/` contient React.
+
+## 🔐 Authentification
+
+* L’authentification est disponible uniquement pour l’admin via **Laravel Breeze** (login uniquement, pas d’inscription).
+
+## 🧪 Commandes utiles
+
+* Générer le fichier `.env` :
+
+```bash
+cp .env.example .env
+```
+
+* Lancer les migrations pour créer les tables :
+
+```bash
+php artisan migrate
+```
+
+## ✅ Fonctionnalités terminées
+
+* Multilinguisme (AR/FR/EN)
+* Affichage dynamique des services et événements
+* Formulaire de contact fonctionnel
+* Système d’abonnement à la newsletter
+* Tableau de bord admin sécurisé
+* Authentification admin (login uniquement)
+* Connexion frontend/backend via API (CORS)
+
+## 📁 Structure globale
+
+```
+backend/
+│
+├── frontend/        # React + Vite + Tailwind CSS
+│
+│
+│
+└── README.md
+```
+
+---
+
+> Ce projet a été réalisé dans un cadre pédagogique pour simuler un vrai site professionnel pour un centre linguistique.
+

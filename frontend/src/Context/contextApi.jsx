@@ -1,8 +1,11 @@
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { languages } from "../data/language";
 const Context = createContext();
 export const useCustomHooks = () => useContext(Context);
+
 const ContextApi = ({ children }) => {
+
     //State pour controller la visibilité de barre de navigationn
     const [showNavbar, setShowNavBar] = useState(window.innerWidth > 1023.33);
     //dark Mode
@@ -122,4 +125,5 @@ const ContextApi = ({ children }) => {
         </Context.Provider>
     );
 };
+
 export default ContextApi;

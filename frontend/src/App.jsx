@@ -34,6 +34,7 @@ const App = () => {
             path: "/Events",
             element: <Events />,
         },
+         
         
      
     ];
@@ -47,6 +48,7 @@ const App = () => {
                     <Route key={index}  path={path} element={element} />
                 ))}
                 <Route path="/services/:serviceName" element={<DetailService/>}/>
+
                 <Route path="/events/:Eventid" element={<DetailEvent/>}/>
             </Route> 
 

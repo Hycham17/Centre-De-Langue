@@ -10,11 +10,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- ✅ AlpineJS -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -23,41 +21,39 @@
     @if (
         Str::startsWith(request()->path(), 'dashboard') ||
         Str::startsWith(request()->path(), 'evenements') ||
+        Str::startsWith(request()->path(), 'profile') ||
         Str::startsWith(request()->path(), 'messages') ||
         Str::startsWith(request()->path(), 'emails')
     )
-        <div class="flex min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="flex flex-col md:flex-row min-h-screen bg-gray-100 dark:bg-gray-900">
             <!-- Sidebar -->
-            <aside class="w-64 bg-white dark:bg-gray-800 shadow-md">
+            <aside class="w-full md:w-64 bg-white dark:bg-gray-800 shadow-md">
                 <div class="p-[0.65rem] border-b border-b-2 border-gray-200 dark:border-gray-700">
                     <div class="flex items-center space-x-2">
-                    <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
-
+                        <img src="{{ asset('assets/logo3.png') }}" alt="Logo" class="h-10 w-auto">
                     </div>
                 </div>
 
                 <nav class="mt-4">
-                    
                     <a href="{{ route('dashboard') }}"
-                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('dashboard') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
-                    Tableau de bord
-                 </a>
-                 
-                 <a href="{{ route('evenements.index') }}"
-                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('evenements.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
-                    Événements & actualités
-                 </a>
-                 
-                 <a href="{{ route('messages.index') }}"
-                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('messages.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
-                  Messages visiteurs
-                 </a>
-                 
-                 <a href="{{ route('emails.index') }}"
-                    class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('emails.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
-                    Emails
-                 </a>
-                 
+                       class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('dashboard') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                        Tableau de bord
+                    </a>
+
+                    <a href="{{ route('evenements.index') }}"
+                       class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('evenements.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                        Événements & actualités
+                    </a>
+
+                    <a href="{{ route('messages.index') }}"
+                       class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('messages.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                        Formulaire de contact
+                    </a>
+
+                    <a href="{{ route('emails.index') }}"
+                       class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 {{ request()->routeIs('emails.*') ? 'bg-gray-300 dark:bg-gray-700 font-bold' : '' }}">
+                        Newsletter
+                    </a>
                 </nav>
             </aside>
 
@@ -70,11 +66,14 @@
                         <button @click="open = !open" class="text-gray-700 dark:text-gray-300 font-semibold focus:outline-none">
                             {{ Auth::user()->name }}
                         </button>
-                        <div x-show="open" @click.outside="open = false" class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-700 rounded shadow z-50">
-                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Profil</a>
+                        <div x-show="open" @click.outside="open = false"
+                             class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-700 rounded shadow z-50">
+                            <a href="{{ route('profile.edit') }}"
+                               class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">Profil</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600">
+                                <button type="submit"
+                                        class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600">
                                     Déconnexion
                                 </button>
                             </form>
