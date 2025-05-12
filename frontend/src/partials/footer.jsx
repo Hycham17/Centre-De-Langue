@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCustomHooks } from "../Context/contextApi";
 import { Titles } from "../data/titles";
-import { faCheck, faCircle, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faCheck, faCircle, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -130,12 +130,18 @@ const Footer = () => {
                             );
                         })}
                     </ul>
-                    <button
+                 <div className="flex flex-col gap-y-2">
+                 <div className="flex flex-col  mx-auto  gap-y-2 font-D items-start md:items-start">
+                 {traductionTitle(Titles, "subscribe")}
+
+</div>
+<FontAwesomeIcon bounce icon={faArrowDown}/>
+                 <button
                         onClick={() => setShowNewsLetter(true)}
                         className="bg-gradient-to-br from-blueColor to-yellow text-white w-[30%] md:w-full md:px-2 p-1  font-B hover:rou nded-b-none hover:rounded-t- rounded-xl xl transition-all duration-1000 font-semibold tracking-wider hover:bg-gradient-to-bl active:scale-[0.5]"
-                    >
-                        {traductionTitle(Titles, "subscribe")}
+                    >{traductionTitle(Titles, "subscribebtn")}
                     </button>
+                 </div>
                 </div>
             </div>
             <div dir="ltr" className="flex flex-col gap-y-4 md:items-center">

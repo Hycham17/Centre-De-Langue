@@ -64,6 +64,10 @@ export const Titles = {
         fr: "S'abonner à NewsLetters",
         en: "Subscribe to the newsletter"
     },
+    subscribebtn: {
+        ar: "الاشتراك",
+        fr: "s’abonner",
+        en: "subscribe"},
     discoverMore: {
         fr: "Découvrir plus",
         en: "Discover more",

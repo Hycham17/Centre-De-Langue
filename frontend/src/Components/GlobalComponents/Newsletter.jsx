@@ -129,8 +129,7 @@ const Newsletter = () => {
                                         "text-xs h-full inline-block w-[30%] text-white font-semibold tracking-wider font-B md:text-sm  hover:bg-gradient-to-bl transition-all bg-gradient-to-tr from-blueColor to-white "
                                     )}
                                 >
-                                    {traductionTitle(Titles, "subscribe")}{" "}
-                                </button>
+{traductionTitle(Titles, "subscribebtn")}                                </button>
                             </form>
                         </div>:<div>
 <div className="flex gap-y-4 flex-col items-center">
