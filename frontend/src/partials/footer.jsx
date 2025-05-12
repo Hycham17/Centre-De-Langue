@@ -138,7 +138,7 @@ const Footer = () => {
 <FontAwesomeIcon bounce icon={faArrowDown}/>
                  <button
                         onClick={() => setShowNewsLetter(true)}
-                        className="bg-gradient-to-br from-blueColor to-yellow text-white w-[30%] md:w-full md:px-2 p-1  font-B hover:rou nded-b-none hover:rounded-t- rounded-xl xl transition-all duration-1000 font-semibold tracking-wider hover:bg-gradient-to-bl active:scale-[0.5]"
+                        className="bg-gradient-to-br w-full from-blueColor to-yellow text-white  md:w-full md:px-2 p-1  font-B hover:rou nded-b-none hover:rounded-t- rounded-xl xl transition-all duration-1000 font-semibold tracking-wider hover:bg-gradient-to-bl active:scale-[0.5]"
                     >{traductionTitle(Titles, "subscribebtn")}
                     </button>
                  </div>

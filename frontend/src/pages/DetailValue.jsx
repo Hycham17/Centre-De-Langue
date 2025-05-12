@@ -1,9 +1,11 @@
 import logo from '../assets/CentrePhotos/photoCentre.png'
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ValueCard from '../Components/GlobalComponents/ValueCard';
 import { useEffect, useState } from 'react';
 import { useCustomHooks } from '../Context/contextApi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons/faArrowAltCircleLeft';
 const values = {
     'Quality-Education': {
       title: {
@@ -123,8 +125,11 @@ const DetailValue = () => {
     const [item,setItem]=useState(values[params.valueName]) 
     useEffect(()=>{
         setItem(values[params.valueName])
-    },[params])
-    return (        <div  style={{background:`url(${logo})`,backgroundRepeat:'no-repeat',backgroundSize:'cover'}} className="h-[90vh] flex items-center justify-center w-full ">
+    },[params]) 
+    const navigate=useNavigate()
+    return (        <div  style={{background:`url(${logo})`,backgroundRepeat:'no-repeat',backgroundSize:'cover'}} className="h-[90vh] flex items-center justify-center w-full "> 
+
+<button onClick={()=>navigate(-1)} className='flex fixed top-24 text-2xl text-white hover:scale-[1.2] transition-all hover:text-orangeColor left-5 '><FontAwesomeIcon icon={faArrowAltCircleLeft}/></button>
       <ValueCard  description={item.description[currentLangAbrev]} title={item.title[currentLangAbrev]}/>
 
         </div>
